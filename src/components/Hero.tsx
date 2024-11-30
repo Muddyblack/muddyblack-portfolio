@@ -31,7 +31,7 @@ export default function Hero() {
           <button className="mt-4 px-8 py-3 bg-accent text-white rounded-lg 
                            hover:bg-accent/90 transform transition-all hover:translate-y-[-2px] 
                            hover:shadow-lg hover:shadow-accent/20">
-            Let's Connect
+            Let&apos;s Connect
           </button>
         </div>
       </div>
