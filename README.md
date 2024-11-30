@@ -3,10 +3,9 @@
 # Install dependencies
 npm install
 
-# Build and export static site
+# Build static site
 # This will create a static export in the 'out' directory
 npm run build
-npm run export
 
 # The static files will be in the 'out' directory
 # To deploy to a web server (if you have permissions):
