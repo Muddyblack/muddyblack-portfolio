@@ -6,8 +6,10 @@ export default function Home() {
   return (
     <main className="min-h-screen bg-white dark:bg-gray-900">
       <NavBar />
-      <Hero />
-      <Projects />
+      <div className="space-y-12">
+        <Hero />
+        <Projects />
+      </div>
     </main>
   );
 }

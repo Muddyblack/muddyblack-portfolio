@@ -56,10 +56,22 @@ export default function NavBar() {
 
           <div className="hidden md:flex items-center space-x-6">
             <Link 
+              href="#about" 
+              className="text-secondary hover:text-primary transition-all hover:translate-y-[-2px]"
+            >
+              About
+            </Link>
+            <Link 
               href="#projects" 
               className="text-secondary hover:text-primary transition-all hover:translate-y-[-2px]"
             >
               Projects
+            </Link>
+            <Link 
+              href="#tech" 
+              className="text-secondary hover:text-primary transition-all hover:translate-y-[-2px]"
+            >
+              Tech Stack
             </Link>
             <Link 
               href="https://github.com/muddyblack" 
