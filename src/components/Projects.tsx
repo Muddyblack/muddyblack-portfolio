@@ -1,12 +1,23 @@
+import { Github } from 'lucide-react';
+import ProjectCard from './ProjectCard';
+
 // Projects.tsx
 interface Project {
   title: string;
   description: string;
   link: string;
+  presentationLink?: string;  // Optional presentation link
   tags: string[];
 }
 
 const projects: Project[] = [
+  {
+    title: "The Dawn",
+    description: "Advanced 3D web application showcasing humanity's future through interactive storytelling. Features procedural planet generation, space stations, and physics-based vehicle systems using Three.js.",
+    link: "/thedawn",
+    presentationLink: "/thedawn-presentation",
+    tags: ["Three.js", "JavaScript", "WebGL", "Vite", "3D Graphics"]
+  },
   {
     title: "Digital Signage App",
     description: "React-based digital signage application with Google Drive sync, weather widgets, and scheduling features. Supports both web and terminal display modes.",
@@ -39,32 +50,7 @@ export default function Projects() {
         </p>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {projects.map((project, index) => (
-            <a 
-              href={project.link}
-              key={index} 
-              className="group block p-6 bg-background border border-muted rounded-xl
-                       hover:border-accent transition-all duration-300
-                       hover:shadow-xl hover:shadow-accent/5
-                       hover:translate-y-[-4px]"
-            >
-              <h3 className="text-xl font-semibold mb-3 text-foreground group-hover:text-accent transition-colors">
-                {project.title}
-              </h3>
-              <p className="text-secondary group-hover:text-foreground/80 transition-colors mb-4">
-                {project.description}
-              </p>
-              <div className="flex flex-wrap gap-2">
-                {project.tags.map((tag, tagIndex) => (
-                  <span 
-                    key={tagIndex}
-                    className="text-xs px-2 py-1 rounded-full bg-muted/50 text-secondary
-                             group-hover:bg-accent/10 group-hover:text-accent transition-colors"
-                  >
-                    {tag}
-                  </span>
-                ))}
-              </div>
-            </a>
+            <ProjectCard key={index} {...project} />
           ))}
         </div>
       </div>
