@@ -1,4 +1,3 @@
-import { Github } from 'lucide-react';
 import ProjectCard from './ProjectCard';
 
 // Projects.tsx
