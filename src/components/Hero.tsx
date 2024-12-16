@@ -1,6 +1,5 @@
 import Image from "next/image";
 
-
 export default function Hero() {
   return (
     <section className="relative h-screen overflow-hidden">
@@ -12,7 +11,8 @@ export default function Hero() {
           className="object-cover scale-[1.02] transform transition-transform duration-[20s] hover:scale-[1.1]"
           priority
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/30 to-background" />
+        <div className="absolute inset-0 bg-gradient-to-b dark:from-black/40 dark:via-black/30 dark:to-background
+                        from-black/20 via-black/15 to-background/70" />
       </div>
       
       <div className="relative z-10 h-full flex flex-col justify-center px-6 max-w-7xl mx-auto">
@@ -21,10 +21,10 @@ export default function Hero() {
             Muddy<span className="text-accent">black</span>
           </h1>
           <div className="space-y-4 max-w-xl">
-            <p className="text-xl md:text-2xl text-white/90 font-light">
+            <p className="text-xl md:text-2xl text-white dark:text-white/90 font-light">
               Hello There! Welcome to my page
             </p>
-            <p className="text-lg md:text-xl text-white/80">
+            <p className="text-lg md:text-xl text-white dark:text-white/80">
               Developer & Creator
             </p>
           </div>

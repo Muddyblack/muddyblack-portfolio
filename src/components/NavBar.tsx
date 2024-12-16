@@ -46,47 +46,58 @@ export default function NavBar() {
               <Image
                 src="/logo.png"
                 alt="MB"
-                className="border-2 border-accent transition-transform group-hover:scale-105"
+                className="transition-transform group-hover:scale-105"
                 fill
                 priority
               />
             </div>
-            <span className="text-foreground font-semibold text-lg">Home</span>
+            <span className={`font-semibold text-lg ${
+              scrolled ? 'text-foreground' : 'dark:text-foreground text-white'
+            }`}>Home</span>
           </Link>
 
           <div className="hidden md:flex items-center space-x-6">
             <Link 
               href="#about" 
-              className="text-secondary hover:text-primary transition-all hover:translate-y-[-2px]"
+              className={`hover:text-primary transition-all hover:translate-y-[-2px] ${
+                scrolled ? 'text-secondary' : 'dark:text-secondary text-white'
+              }`}
             >
               About
             </Link>
             <Link 
               href="#projects" 
-              className="text-secondary hover:text-primary transition-all hover:translate-y-[-2px]"
+              className={`hover:text-primary transition-all hover:translate-y-[-2px] ${
+                scrolled ? 'text-secondary' : 'dark:text-secondary text-white'
+              }`}
             >
               Projects
             </Link>
             <Link 
               href="#tech" 
-              className="text-secondary hover:text-primary transition-all hover:translate-y-[-2px]"
+              className={`hover:text-primary transition-all hover:translate-y-[-2px] ${
+                scrolled ? 'text-secondary' : 'dark:text-secondary text-white'
+              }`}
             >
               Tech Stack
             </Link>
             <Link 
               href="https://github.com/muddyblack" 
-              className="px-5 py-2.5 border border-accent rounded-lg text-foreground 
-                       hover:bg-accent hover:text-white transition-all hover:translate-y-[-2px]"
+              className={`px-5 py-2.5 border border-accent rounded-lg hover:bg-accent hover:text-white 
+                        transition-all hover:translate-y-[-2px] ${
+                scrolled ? 'text-foreground' : 'dark:text-foreground text-white'
+              }`}
             >
               GitHub Profile
             </Link>
             <button
               onClick={toggleDarkMode}
-              className="p-2.5 rounded-lg hover:bg-muted/20 transition-all"
+              className={`p-2.5 rounded-lg hover:bg-muted/20 transition-all ${
+                scrolled ? 'text-foreground' : 'dark:text-foreground text-white'
+              }`}
               aria-label={isDark ? 'Switch to light mode' : 'Switch to dark mode'}
             >
-              {isDark ? <Sun size={22} className="text-foreground" /> : 
-                       <Moon size={22} className="text-foreground" />}
+              {isDark ? <Sun size={22} /> : <Moon size={22} />}
             </button>
           </div>
 
