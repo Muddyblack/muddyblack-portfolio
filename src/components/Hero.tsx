@@ -24,9 +24,6 @@ export default function Hero() {
             <p className="text-xl md:text-2xl text-white dark:text-white/90 font-light">
               Hello There! Welcome to my page
             </p>
-            <p className="text-lg md:text-xl text-white dark:text-white/80">
-              Developer & Creator
-            </p>
           </div>
           <button className="mt-4 px-8 py-3 bg-accent text-white rounded-lg 
                            hover:bg-accent/90 transform transition-all hover:translate-y-[-2px] 

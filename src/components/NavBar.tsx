@@ -2,7 +2,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { useState, useEffect } from "react";
-import { Menu, Moon, Sun } from "lucide-react";
+import { Menu, X, Moon, Sun } from "lucide-react";
 
 export default function NavBar() {
   const [isDark, setIsDark] = useState(false);
@@ -56,6 +56,7 @@ export default function NavBar() {
             }`}>Home</span>
           </Link>
 
+          {/* Desktop Menu */}
           <div className="hidden md:flex items-center space-x-6">
             <Link 
               href="#about" 
@@ -72,14 +73,6 @@ export default function NavBar() {
               }`}
             >
               Projects
-            </Link>
-            <Link 
-              href="#tech" 
-              className={`hover:text-primary transition-all hover:translate-y-[-2px] ${
-                scrolled ? 'text-secondary' : 'dark:text-secondary text-white'
-              }`}
-            >
-              Tech Stack
             </Link>
             <Link 
               href="https://github.com/muddyblack" 
@@ -101,38 +94,64 @@ export default function NavBar() {
             </button>
           </div>
 
+          {/* Mobile Menu Button */}
           <button
             onClick={() => setIsMenuOpen(!isMenuOpen)}
-            className="md:hidden p-2 rounded-lg hover:bg-muted/20 transition-colors"
+            className={`md:hidden p-2 rounded-lg hover:bg-muted/20 transition-all ${
+              scrolled ? 'text-foreground' : 'dark:text-foreground text-white'
+            }`}
+            aria-label="Toggle menu"
           >
-            <Menu size={24} className="text-foreground" />
+            {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
         </div>
 
-        <div className={`md:hidden transform transition-all duration-300 ${
-          isMenuOpen ? 'translate-y-0 opacity-100' : 'translate-y-[-20px] opacity-0 pointer-events-none'
-        }`}>
-          <div className="py-4 space-y-3">
-            <Link 
-              href="#projects"
-              className="block px-4 py-3 text-foreground hover:bg-muted/20 rounded-lg transition-colors"
-            >
-              Projects
-            </Link>
-            <Link 
-              href="https://github.com/muddyblack"
-              className="block px-4 py-3 text-foreground hover:bg-muted/20 rounded-lg transition-colors"
-            >
-              GitHub Profile
-            </Link>
-            <button
-              onClick={toggleDarkMode}
-              className="w-full text-left px-4 py-3 text-foreground hover:bg-muted/20 rounded-lg transition-colors"
-            >
-              {isDark ? 'Switch to Light Mode' : 'Switch to Dark Mode'}
-            </button>
+        {/* Mobile Menu - Only renders when open */}
+        {isMenuOpen && (
+          <div className="md:hidden overflow-hidden">
+            <div className="py-4 space-y-2 border-t border-muted/20">
+              <Link 
+                href="#about"
+                onClick={() => setIsMenuOpen(false)}
+                className={`block px-4 py-3 rounded-lg transition-colors ${
+                  scrolled ? 'text-foreground hover:bg-muted/20' : 'text-white hover:bg-white/10'
+                }`}
+              >
+                About
+              </Link>
+              <Link 
+                href="#projects"
+                onClick={() => setIsMenuOpen(false)}
+                className={`block px-4 py-3 rounded-lg transition-colors ${
+                  scrolled ? 'text-foreground hover:bg-muted/20' : 'text-white hover:bg-white/10'
+                }`}
+              >
+                Projects
+              </Link>
+              <Link 
+                href="https://github.com/muddyblack"
+                onClick={() => setIsMenuOpen(false)}
+                className={`block px-4 py-3 rounded-lg transition-colors ${
+                  scrolled ? 'text-foreground hover:bg-muted/20' : 'text-white hover:bg-white/10'
+                }`}
+              >
+                GitHub Profile
+              </Link>
+              <button
+                onClick={() => {
+                  toggleDarkMode();
+                  setIsMenuOpen(false);
+                }}
+                className={`w-full text-left px-4 py-3 rounded-lg transition-colors flex items-center gap-2 ${
+                  scrolled ? 'text-foreground hover:bg-muted/20' : 'text-white hover:bg-white/10'
+                }`}
+              >
+                {isDark ? <Sun size={18} /> : <Moon size={18} />}
+                {isDark ? 'Light Mode' : 'Dark Mode'}
+              </button>
+            </div>
           </div>
-        </div>
+        )}
       </div>
     </nav>
   );
