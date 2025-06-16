@@ -79,20 +79,6 @@ const getTypeIcon = (type: string) => {
   }
 };
 
-const getButtonStyles = (variant: string) => {
-  const baseStyles = "inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-medium transition-all duration-200 border";
-  
-  switch (variant) {
-    case 'primary':
-      return `${baseStyles} bg-accent/10 text-accent border-accent/20 hover:bg-accent/20 hover:border-accent/30`;
-    case 'secondary':
-      return `${baseStyles} bg-muted/50 text-foreground/80 border-muted/50 hover:bg-muted/70 hover:text-foreground`;
-    case 'outline':
-    default:
-      return `${baseStyles} bg-transparent text-foreground/70 border-muted hover:bg-muted/30 hover:text-foreground`;
-  }
-};
-
 export default function StudyMaterials() {
   return (
     <div className="min-h-screen bg-background">
