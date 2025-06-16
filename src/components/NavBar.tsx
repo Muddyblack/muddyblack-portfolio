@@ -3,12 +3,14 @@ import Link from "next/link";
 import Image from "next/image";
 import { useState, useEffect } from "react";
 import { Menu, X, Moon, Sun } from "lucide-react";
+import { usePathname } from "next/navigation";
 
 export default function NavBar() {
   const [isDark, setIsDark] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [mounted, setMounted] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const pathname = usePathname();
 
   useEffect(() => {
     setMounted(true);
@@ -34,6 +36,8 @@ export default function NavBar() {
   };
 
   if (!mounted) return null;
+
+  const isStudyMaterialsActive = pathname.startsWith('/study-materials');
 
   return (
     <nav className={`fixed w-full z-50 transition-all duration-300 ${
@@ -73,6 +77,15 @@ export default function NavBar() {
               }`}
             >
               Projects
+            </Link>
+            <Link 
+              href="/study-materials" 
+              className={`hover:text-primary transition-all hover:translate-y-[-2px] ${
+                isStudyMaterialsActive ? 'text-primary' : 
+                scrolled ? 'text-secondary' : 'dark:text-secondary text-white'
+              }`}
+            >
+              Study Materials
             </Link>
             <Link 
               href="https://github.com/muddyblack" 
@@ -127,6 +140,16 @@ export default function NavBar() {
                 }`}
               >
                 Projects
+              </Link>
+              <Link 
+                href="/study-materials"
+                onClick={() => setIsMenuOpen(false)}
+                className={`block px-4 py-3 rounded-lg transition-colors ${
+                  isStudyMaterialsActive ? 'text-primary bg-primary/10' :
+                  scrolled ? 'text-foreground hover:bg-muted/20' : 'text-white hover:bg-white/10'
+                }`}
+              >
+                Study Materials
               </Link>
               <Link 
                 href="https://github.com/muddyblack"
