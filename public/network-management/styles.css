@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
 :root {
-    --bg-color: #f1f5f9; --text-primary: #1e293b; --text-secondary: #475569; --card-bg: rgba(255, 255, 255, 0.6); --card-border: rgba(226, 232, 240, 0.8); --sidebar-bg: rgba(255, 255, 255, 0.4);
-    --accent-primary: #4f46e5; --accent-secondary: #6366f1; --accent-text: #eef2ff; --takeaway-bg: linear-gradient(135deg, #4f46e5, #818cf8);
+    --bg-color: #f8fafc; --text-primary: #1e293b; --text-secondary: #475569; --card-bg: rgba(255, 255, 255, 0.8); --card-border: rgba(203, 213, 225, 0.8); --sidebar-bg: rgba(255, 255, 255, 0.6);
+    --accent-primary: #4f46e5; --accent-secondary: #6366f1; --accent-text: #f1f5f9; --takeaway-bg: linear-gradient(135deg, #4f46e5, #818cf8);
     --chart-grid-color: #e2e8f0; --chart-label-color: #64748b;
 }
 html.dark {
@@ -10,7 +10,24 @@ html.dark {
     --chart-grid-color: #334155; --chart-label-color: #94a3b8;
 }
 body { font-family: 'Inter', sans-serif; background-color: var(--bg-color); color: var(--text-primary); transition: background-color 0.3s, color 0.3s; }
-.glass-card { background-color: var(--card-bg); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border: 1px solid var(--card-border); border-radius: 1.5rem; transition: all 0.3s; }
+.glass-card { 
+    background-color: var(--card-bg); 
+    backdrop-filter: blur(20px); 
+    -webkit-backdrop-filter: blur(20px); 
+    border: 1px solid var(--card-border); 
+    border-radius: 1.5rem; 
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+.glass-card:hover {
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+html.dark .glass-card {
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3), 0 2px 4px -1px rgba(0, 0, 0, 0.2);
+}
+html.dark .glass-card:hover {
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.4), 0 10px 10px -5px rgba(0, 0, 0, 0.3);
+}
 .sidebar { background-color: var(--sidebar-bg); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border-right: 1px solid var(--card-border); }
 .nav-link { color: var(--text-secondary); transition: all 0.2s; }
 .nav-link.active { background-color: var(--accent-primary); color: white; }
@@ -23,7 +40,19 @@ body { font-family: 'Inter', sans-serif; background-color: var(--bg-color); colo
 .module-content { display: none; } .module-content.active { display: block; }
 .takeaway-card { background: var(--takeaway-bg); color: white; }
 .takeaway-card h3 { color: white;}
-.source-tag { font-size: 0.7rem; background-color: var(--accent-text); color: var(--accent-primary); padding: 2px 8px; border-radius: 9999px; font-weight: 600; }
+.source-tag { 
+    font-size: 0.7rem; 
+    background-color: var(--accent-text); 
+    color: var(--accent-primary); 
+    padding: 4px 12px; 
+    border-radius: 9999px; 
+    font-weight: 600;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: all 0.2s ease;
+}
+.source-tag:hover {
+    transform: scale(1.05);
+}
 .accordion-content { max-height: 0; overflow: hidden; transition: max-height 0.4s ease-in-out; }
 
 /* Flashcard specific styles */
@@ -64,12 +93,40 @@ html.dark #suggest-topic-btn .spinner { border-left-color: var(--accent-primary)
 ::-webkit-scrollbar-thumb { background: var(--card-border); border-radius: 6px; border: 3px solid var(--bg-color); }
 .card-content-wrapper, .modal-content, #explanation-content { scrollbar-width: thin; scrollbar-color: var(--card-border) var(--bg-color); }
 
-/* Additional style for better UI */
-.tab-button.active { border-color: var(--accent-primary); color: var(--text-primary); font-weight: 600; }
-#m1-nist-diagram .diagram-item { cursor: pointer; transition: all 0.2s ease-in-out; }
-#m1-nist-diagram .diagram-item:hover, #m1-nist-diagram .diagram-item.active { transform: scale(1.1); box-shadow: 0 0 20px rgba(0,0,0,0.2); }
-#m4-killchain-diagram .diagram-item { cursor: pointer; transition: all 0.2s ease-in-out; }
-#m4-killchain-diagram .diagram-item:hover, #m4-killchain-diagram .diagram-item.active { background-color: var(--accent-text); border-color: var(--accent-primary); transform: translateX(5px);}
-.stat-box { cursor: pointer; transition: all 0.2s; }
-.stat-box:hover { transform: translateY(-2px); box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1); }
-.stat-box.active { background-color: var(--accent-primary); color: white; }
+/* Animation classes */
+@keyframes fade-in {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+@keyframes fade-in-delay {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+.animate-fade-in { animation: fade-in 0.6s ease-out; }
+.animate-fade-in-delay { animation: fade-in-delay 0.8s ease-out; }
+
+/* Enhanced interactive elements */
+.diagram-item, .stat-box, .tab-button, .accordion-button {
+    transition: all 0.3s ease;
+}
+.diagram-item:hover, .stat-box:hover {
+    transform: translateY(-2px) scale(1.05);
+}
+
+/* Better border styling for light mode */
+.border-l-4 {
+    border-left-width: 4px !important;
+}
+
+/* Improved background colors for better contrast */
+.bg-red-100 { background-color: rgba(254, 226, 226, 0.8) !important; }
+.bg-blue-100 { background-color: rgba(219, 234, 254, 0.8) !important; }
+.bg-green-100 { background-color: rgba(220, 252, 231, 0.8) !important; }
+.bg-yellow-100 { background-color: rgba(254, 249, 195, 0.8) !important; }
+.bg-purple-100 { background-color: rgba(243, 232, 255, 0.8) !important; }
+.bg-orange-100 { background-color: rgba(255, 237, 213, 0.8) !important; }
+.bg-gray-100 { background-color: rgba(243, 244, 246, 0.9) !important; }
+
+html.dark .bg-gray-100 { background-color: rgba(55, 65, 81, 0.8) !important; }
+
+/* ...existing code... */

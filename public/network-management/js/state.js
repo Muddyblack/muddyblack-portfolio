@@ -74,9 +74,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Helper function to create standard module header
     const createModuleHeaderHtml = (title, subtitle) => `
-        <div class="glass-card p-6 sm:p-8 mb-8 text-center">
-            <h2 class="text-3xl sm:text-4xl font-extrabold text-[var(--accent-primary)] mb-2">${title}</h2>
-            <p class="text-[var(--text-secondary)] max-w-3xl mx-auto">${subtitle}</p>
+        <div class="glass-card p-6 sm:p-8 mb-8 text-center transform transition-all duration-500 hover:scale-[1.02] hover:shadow-2xl">
+            <h2 class="text-3xl sm:text-4xl font-extrabold text-[var(--accent-primary)] mb-2 animate-fade-in">${title}</h2>
+            <p class="text-[var(--text-secondary)] max-w-3xl mx-auto animate-fade-in-delay">${subtitle}</p>
         </div>`;
 
     // Generic module initialization function
