@@ -31,7 +31,7 @@ const modulePageContent = {
                     <div id="fc-navigation-container" class="w-full max-w-lg flex justify-between items-center my-4">
                         <button id="fc-prev-btn" class="px-4 py-2 rounded-lg bg-[var(--card-bg)] border border-[var(--card-border)] hover:bg-[var(--accent-text)]">&lt; Zurück</button>
                         <span id="fc-card-counter" class="text-sm font-medium text-[var(--text-secondary)]"></span>
-                        <button id="fc-next-btn" class="px-4 py-2 rounded-lg bg-[var(--card-bg)] border border-[var(--card-border)] hover:bg-[var(--accent-text)]">Weiter &gt;</button>
+                        <button id="fc-next-btn" class="px-4 py-2 rounded-lg bg-[var(--card-bg)] border border-[var,--card-border)] hover:bg-[var(--accent-text)]">Weiter &gt;</button>
                     </div>
                     <div id="fc-answer-buttons" class="flex justify-center items-center gap-4 w-full mt-2">
                         <button id="fc-wrong-btn" class="group px-6 py-4 bg-gradient-to-br from-red-500 to-red-700 text-white font-bold rounded-xl shadow-lg hover:shadow-xl focus:outline-none focus:ring-4 focus:ring-red-400 dark:focus:ring-red-800 transition-all text-lg w-1/2 max-w-xs transform hover:-translate-y-1"><span class="flex items-center justify-center"><svg class="w-6 h-6 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>Falsch</span></button>
@@ -311,16 +311,14 @@ const modulePageContent = {
                 <div class="glass-card p-6 sm:p-8">
                     <h3 class="text-2xl font-bold mb-4">SNMP-Architektur und Operationen</h3>
                     <p class="mb-6 text-[var(--text-secondary)] leading-relaxed">Das Simple Network Management Protocol (SNMP) ist ein Standardprotokoll zur Überwachung und Verwaltung von Netzwerkgeräten wie Routern, Switches und Servern.</p>
-                    <div class="grid lg:grid-cols-2 gap-8">
-                        <div>
-                           <h4 class="font-bold text-lg text-[var(--accent-primary)] mb-3">Kernarchitektur</h4>
-                            <ul class="list-none space-y-4">
-                                <li class="flex items-start gap-4"><div class="flex-shrink-0 w-12 h-12 bg-blue-100 text-blue-600 rounded-lg flex items-center justify-center"><i class="fa-solid fa-server fa-lg"></i></div><div><h5 class="font-bold">Manager (NMS)</h5><p class="text-sm text-[var(--text-secondary)]">Ein zentraler Server, der die Überwachung durchführt, Daten von Agenten abfragt und Befehle sendet.</p></div></li>
-                                <li class="flex items-start gap-4"><div class="flex-shrink-0 w-12 h-12 bg-green-100 text-green-600 rounded-lg flex items-center justify-center"><i class="fa-solid fa-microchip fa-lg"></i></div><div><h5 class="font-bold">Agent</h5><p class="text-sm text-[var(--text-secondary)]">Eine Software, die auf dem verwalteten Gerät läuft, lokale Daten sammelt und auf Anfragen des Managers antwortet.</p></div></li>
-                                <li class="flex items-start gap-4"><div class="flex-shrink-0 w-12 h-12 bg-purple-100 text-purple-700 rounded-lg flex items-center justify-center"><i class="fa-solid fa-database fa-lg"></i></div><div><h5 class="font-bold">MIB (Management Information Base)</h5><p class="text-sm text-[var(--text-secondary)]">Eine hierarchische Datenbank auf dem Agenten, die alle verwaltbaren Objekte (z.B. CPU-Auslastung) über eine eindeutige <strong>Object Identifier (OID)</strong> definiert.</p></div></li>
-                            </ul>
-                        </div>
-                         <div class="p-6 bg-[var(--card-bg)] border border-[var(--card-border)] rounded-xl">
+                    <div>
+                        <h4 class="font-bold text-lg text-[var(--accent-primary)] mb-3">Kernarchitektur</h4>
+                        <ul class="list-none space-y-4 mb-6">
+                            <li class="flex items-start gap-4"><div class="flex-shrink-0 w-12 h-12 bg-blue-100 text-blue-600 rounded-lg flex items-center justify-center"><i class="fa-solid fa-server fa-lg"></i></div><div><h5 class="font-bold">Manager (NMS)</h5><p class="text-sm text-[var(--text-secondary)]">Ein zentraler Server, der die Überwachung durchführt, Daten von Agenten abfragt und Befehle sendet.</p></div></li>
+                            <li class="flex items-start gap-4"><div class="flex-shrink-0 w-12 h-12 bg-green-100 text-green-600 rounded-lg flex items-center justify-center"><i class="fa-solid fa-microchip fa-lg"></i></div><div><h5 class="font-bold">Agent</h5><p class="text-sm text-[var(--text-secondary)]">Eine Software, die auf dem verwalteten Gerät läuft, lokale Daten sammelt und auf Anfragen des Managers antwortet.</p></div></li>
+                            <li class="flex items-start gap-4"><div class="flex-shrink-0 w-12 h-12 bg-purple-100 text-purple-700 rounded-lg flex items-center justify-center"><i class="fa-solid fa-database fa-lg"></i></div><div><h5 class="font-bold">MIB (Management Information Base)</h5><p class="text-sm text-[var(--text-secondary)]">Eine hierarchische Datenbank auf dem Agenten, die alle verwaltbaren Objekte (z.B. CPU-Auslastung) über eine eindeutige <strong>Object Identifier (OID)</strong> definiert.</p></div></li>
+                        </ul>
+                        <div class="p-6 bg-[var(--card-bg)] border border-[var(--card-border)] rounded-xl">
                             <h4 class="font-bold text-lg text-[var(--accent-primary)] mb-3 text-center">Wichtige Protokolloperationen</h4>
                             <div class="text-center space-y-2">
                                 <div class="p-3 bg-gray-100 rounded-md"><strong>Get-Request:</strong> Manager fordert den Wert einer OID von einem Agenten an.</div>
@@ -373,42 +371,42 @@ const modulePageContent = {
             });
         }
     },
-    "vl5": {
-        title: "VL5: Schwachstellen- & Risikomanagement",
-        subtitle: "Wie Schwachstellen mittels CVSS bewertet und durch die Business Impact Analysis (BIA) im Geschäftskontext priorisiert werden.",
-        navTitle: "VL5: Risiko & CVSS",
-        navIcon: `<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>`,
-        mainHtml: `
-            <div class="space-y-8">
-                <div class="glass-card p-6 sm:p-8">
-                    <h3 class="text-2xl font-bold mb-4">Grundlagen: Schwachstellen & CVE</h3>
-                    <p class="mb-2 text-[var(--text-secondary)] leading-relaxed">Eine <strong class="text-[var(--text-primary)]">Schwachstelle</strong> ist eine ausnutzbare Schwäche in einem IT-System. Dies kann ein Softwarefehler, eine Hardware-Schwäche, eine Fehlkonfiguration oder menschliches Versagen sein.</p>
-                    <p class="text-[var(--text-secondary)] leading-relaxed">Um eine standardisierte Referenz zu schaffen, wird jeder öffentlich bekannten Schwachstelle eine eindeutige <strong class="text-[var(--text-primary)]">CVE-ID (Common Vulnerabilities and Exposures)</strong> zugewiesen (z.B. CVE-2021-34527).</p>
-                </div>
-                <div class="glass-card p-6 sm:p-8">
-                    <h3 class="text-2xl font-bold mb-4">Risikobewertung & Priorisierung (Prüfungsrelevant)</h3>
-                    <p class="mb-6 text-[var(--text-secondary)] leading-relaxed">Die entscheidende Frage ist nicht nur, *ob* eine Schwachstelle existiert, sondern *wie kritisch* sie für die eigene Organisation ist. Dies wird durch die Kombination von technischer Bewertung (CVSS) und geschäftlicher Analyse (BIA) ermittelt.</p>
-                    <div class="grid lg:grid-cols-5 gap-8 items-start">
-                        <div class="lg:col-span-3 p-6 bg-[var(--card-bg)] border border-[var(--card-border)] rounded-xl">
-                            <h4 class="font-bold text-lg text-[var(--accent-primary)] mb-3">CVSS (Common Vulnerability Scoring System)</h4>
-                            <p class="mb-4 text-sm text-[var(--text-secondary)]">Ein Framework zur Bewertung des technischen Schweregrads einer Schwachstelle auf einer Skala von 0-10. Es besteht aus drei metrischen Gruppen:</p>
-                            <ul class="space-y-3">
-                                <li><strong class="text-[var(--text-primary)]">Base Score:</strong> Beschreibt die inhärenten, unveränderlichen technischen Eigenschaften der Schwachstelle (z.B. wie leicht sie auszunutzen ist). Dies ist der Wert, den man typischerweise in Datenbanken sieht.</li>
-                                <li><strong class="text-[var(--text-primary)]">Temporal Score:</strong> Passt den Base Score an, basierend auf zeitabhängigen Faktoren wie der Verfügbarkeit eines Exploits oder eines offiziellen Patches.</li>
-                                <li class="p-3 bg-red-100 border-l-4 border-red-500 rounded-r-md"><strong class="text-red-700">Environmental Score (Der Wichtigste für eine Organisation!):</strong> Dieser Score wird von der Organisation selbst berechnet. Er passt den Temporal Score an den spezifischen Geschäftskontext an. Er beantwortet die Frage: "Wie schlimm ist diese Schwachstelle <strong class="text-[var(--text-primary)]">für uns</strong>?"</li>
-                            </ul>
-                        </div>
-                        <div class="lg:col-span-2 p-6 bg-[var(--card-bg)] border border-[var(--card-border)] rounded-xl text-center">
-                            <h4 class="font-bold text-lg text-teal-700 mb-3">Business Impact Analysis (BIA)</h4>
-                            <p class="text-sm text-[var(--text-secondary)] mb-4">Ein Prozess zur Identifizierung der kritischsten Geschäftsfunktionen und zur Bewertung der potenziellen (finanziellen, reputationellen, operativen) Auswirkungen ihrer Störung.</p>
-                            <div class="text-2xl font-light text-gray-400 my-2">▼</div>
-                            <p class="p-3 bg-teal-100 rounded-lg text-sm"><strong class="text-teal-700">Die BIA liefert den entscheidenden Input für den CVSS Environmental Score.</strong> Nur durch die BIA weiß man, ob ein betroffenes System geschäftskritisch ist (z.B. ein Patientendaten-System) oder nicht (z.B. eine interne Test-Webseite), und kann die Priorität der Behebung korrekt festlegen.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        `,
-        initLogic: () => {
+	"vl5": {
+		title: "VL5: Schwachstellen- & Risikomanagement",
+		subtitle: "Wie Schwachstellen mittels CVSS bewertet und durch die Business Impact Analysis (BIA) im Geschäftskontext priorisiert werden.",
+		navTitle: "VL5: Risiko & CVSS",
+		navIcon: `<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>`,
+		mainHtml: `
+			<div class="space-y-8">
+				<div class="glass-card p-6 sm:p-8">
+					<h3 class="text-2xl font-bold mb-4">Grundlagen: Schwachstellen & CVE</h3>
+					<p class="mb-2 text-[var(--text-secondary)] leading-relaxed">Eine <strong class="text-[var(--text-primary)]">Schwachstelle</strong> ist eine ausnutzbare Schwäche in einem IT-System. Dies kann ein Softwarefehler, eine Hardware-Schwäche, eine Fehlkonfiguration oder menschliches Versagen sein.</p>
+					<p class="text-[var(--text-secondary)] leading-relaxed">Um eine standardisierte Referenz zu schaffen, wird jeder öffentlich bekannten Schwachstelle eine eindeutige <strong class="text-[var(--text-primary)]">CVE-ID (Common Vulnerabilities and Exposures)</strong> zugewiesen (z.B. CVE-2021-34527).</p>
+				</div>
+				<div class="glass-card p-6 sm:p-8">
+					<h3 class="text-2xl font-bold mb-4">Risikobewertung & Priorisierung (Prüfungsrelevant)</h3>
+					<p class="mb-6 text-[var(--text-secondary)] leading-relaxed">Die entscheidende Frage ist nicht nur, *ob* eine Schwachstelle existiert, sondern *wie kritisch* sie für die eigene Organisation ist. Dies wird durch die Kombination von technischer Bewertung (CVSS) und geschäftlicher Analyse (BIA) ermittelt.</p>
+					<div>
+						<div class="p-6 bg-[var(--card-bg)] border border-[var(--card-border)] rounded-xl mb-6">
+							<h4 class="font-bold text-lg text-[var(--accent-primary)] mb-3">CVSS (Common Vulnerability Scoring System)</h4>
+							<p class="mb-4 text-sm text-[var(--text-secondary)]">Ein Framework zur Bewertung des technischen Schweregrads einer Schwachstelle auf einer Skala von 0-10. Es besteht aus drei metrischen Gruppen:</p>
+							<ul class="space-y-3">
+								<li><strong class="text-[var(--text-primary)]">Base Score:</strong> Beschreibt die inhärenten, unveränderlichen technischen Eigenschaften der Schwachstelle (z.B. wie leicht sie auszunutzen ist). Dies ist der Wert, den man typischerweise in Datenbanken sieht.</li>
+								<li><strong class="text-[var(--text-primary)]">Temporal Score:</strong> Passt den Base Score an, basierend auf zeitabhängigen Faktoren wie der Verfügbarkeit eines Exploits oder eines offiziellen Patches.</li>
+								<li class="p-3 bg-red-100 border-l-4 border-red-500 rounded-r-md"><strong class="text-red-700">Environmental Score (Der Wichtigste für eine Organisation!):</strong> Dieser Score wird von der Organisation selbst berechnet. Er passt den Temporal Score an den spezifischen Geschäftskontext an. Er beantwortet die Frage: "Wie schlimm ist diese Schwachstelle <strong class="text-[var(--text-primary)]">für uns</strong>?"</li>
+							</ul>
+						</div>
+						<div class="p-6 bg-[var(--card-bg)] border border-[var(--card-border)] rounded-xl text-center">
+							<h4 class="font-bold text-lg text-teal-700 mb-3">Business Impact Analysis (BIA)</h4>
+							<p class="text-sm text-[var(--text-secondary)] mb-4">Ein Prozess zur Identifizierung der kritischsten Geschäftsfunktionen und zur Bewertung der potenziellen (finanziellen, reputationellen, operativen) Auswirkungen ihrer Störung.</p>
+							<div class="text-2xl font-light text-gray-400 my-2">▼</div>
+							<p class="p-3 bg-teal-100 rounded-lg text-sm"><strong class="text-teal-700">Die BIA liefert den entscheidenden Input für den CVSS Environmental Score.</strong> Nur durch die BIA weiß man, ob ein betroffenes System geschäftskritisch ist (z.B. ein Patientendaten-System) oder nicht (z.B. eine interne Test-Webseite), und kann die Priorität der Behebung korrekt festlegen.</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		`,
+		initLogic: () => {
              const observer = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
@@ -472,8 +470,8 @@ const modulePageContent = {
                  <div class="glass-card p-6 sm:p-8">
                     <h3 class="text-2xl font-bold mb-4">Strategien zur Behebung & Patching</h3>
                      <p class="mb-6 text-[var(--text-secondary)] leading-relaxed">Die Art und Weise, wie Patches verteilt werden, muss zwischen Dringlichkeit und Stabilität abwägen.</p>
-                    <div class="grid md:grid-cols-2 gap-6 mt-4">
-                        <div class="p-4 bg-[var(--card-bg)] border border-[var(--card-border)] rounded-lg">
+                    <div class="mt-4">
+                        <div class="p-4 bg-[var(--card-bg)] border border-[var(--card-border)] rounded-lg mb-6">
                             <h5 class="font-bold text-lg mb-2">Patch-Zyklen</h5>
                             <ul class="list-disc list-inside space-y-2 text-sm text-[var(--text-secondary)]">
                                 <li><strong class="text-[var(--text-primary)]">Zyklisches Patchen:</strong> Ein regelmäßiger, geplanter Prozess (z.B. Microsofts "Patch Tuesday"). Dies schafft Vorhersehbarkeit, ermöglicht gründliche Tests und planbare Wartungsfenster.</li>
@@ -509,21 +507,21 @@ const modulePageContent = {
         subtitle: "CTI nutzen, um Bedrohungen zu verstehen und Angriffe mit Frameworks wie der Cyber Kill Chain zu modellieren.",
         navTitle: "VL7: CTI & Kill Chain",
         navIcon: `<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>`,
-        mainHtml: `
-            <div class="space-y-8">
-                <div class="glass-card p-6 sm:p-8">
-                    <h3 class="text-2xl font-bold mb-4">Die vier Arten von Cyber Threat Intelligence (CTI)</h3>
-                    <p class="mb-6 text-[var(--text-secondary)] leading-relaxed">CTI ist evidenzbasiertes Wissen über Bedrohungen, das für verschiedene Zielgruppen aufbereitet wird, um fundierte Sicherheitsentscheidungen zu ermöglichen.</p>
-                    <div class="space-y-3">
-                        <div class="p-4 rounded-lg bg-[var(--card-bg)] border-l-4 border-red-500"><strong class="block text-red-600">Strategische CTI</strong><p class="text-sm text-[var(--text-secondary)]"><strong>Zielgruppe:</strong> Führungskräfte. <strong>Inhalt:</strong> High-Level-Trends, Geschäftsrisiken, Motivation von Angreifern.</p></div>
-                        <div class="p-4 rounded-lg bg-[var(--card-bg)] border-l-4 border-orange-500"><strong class="block text-orange-600">Taktische CTI</strong><p class="text-sm text-[var(--text-secondary)]"><strong>Zielgruppe:</strong> Sicherheitsteams. <strong>Inhalt:</strong> Detaillierte <strong class="text-[var(--text-primary)]">TTPs</strong> (Taktiken, Techniken, Prozeduren) von Angreifern.</p></div>
-                        <div class="p-4 rounded-lg bg-[var(--card-bg)] border-l-4 border-blue-500"><strong class="block text-blue-600">Operative CTI</strong><p class="text-sm text-[var(--text-secondary)]"><strong>Zielgruppe:</strong> Incident Response Teams. <strong>Inhalt:</strong> Infos über spezifische, laufende Angriffe.</p></div>
-                        <div class="p-4 rounded-lg bg-[var(--card-bg)] border-l-4 border-gray-500"><strong class="block text-gray-600">Technische CTI</strong><p class="text-sm text-[var(--text-secondary)]"><strong>Zielgruppe:</strong> Automatisierte Systeme. <strong>Inhalt:</strong> Spezifische <strong class="text-[var(--text-primary)]">IoCs</strong> (Indicators of Compromise) wie Hashes, IPs.</p></div>
-                    </div>
-                </div>
-                <div class="glass-card p-6 sm:p-8">
-                    <h3 class="text-2xl font-bold mb-4">Angriffsmodelle: Die Cyber Kill Chain</h3>
-                    <p class="mb-6 text-[var(--text-secondary)] leading-relaxed">Die von Lockheed Martin entwickelte Cyber Kill Chain ist ein High-Level-Framework, das die typischen Phasen eines Cyberangriffs beschreibt. Das Verständnis dieser Kette hilft, Abwehrmaßnahmen an den richtigen Stellen zu platzieren.</p>
+		mainHtml: `
+			<div class="space-y-8">
+				<div class="glass-card p-6 sm:p-8">
+					<h3 class="text-2xl font-bold mb-4">Die vier Arten von Cyber Threat Intelligence (CTI)</h3>
+					<p class="mb-6 text-[var(--text-secondary)] leading-relaxed">CTI ist evidenzbasiertes Wissen über Bedrohungen, das für verschiedene Zielgruppen aufbereitet wird, um fundierte Sicherheitsentscheidungen zu ermöglichen.</p>
+					<div class="space-y-3">
+						<div class="p-4 rounded-lg bg-[var(--card-bg)] border-l-4 border-red-500"><strong class="block text-red-600">Strategische CTI</strong><p class="text-sm text-[var(--text-secondary)]"><strong>Zielgruppe:</strong> Führungskräfte. <strong>Inhalt:</strong> High-Level-Trends, Geschäftsrisiken, Motivation von Angreifern.</p></div>
+						<div class="p-4 rounded-lg bg-[var(--card-bg)] border-l-4 border-orange-500"><strong class="block text-orange-600">Taktische CTI</strong><p class="text-sm text-[var(--text-secondary)]"><strong>Zielgruppe:</strong> Sicherheitsteams. <strong>Inhalt:</strong> Detaillierte <strong class="text-[var(--text-primary)]">TTPs</strong> (Taktiken, Techniken, Prozeduren) von Angreifern.</p></div>
+						<div class="p-4 rounded-lg bg-[var(--card-bg)] border-l-4 border-blue-500"><strong class="block text-blue-600">Operative CTI</strong><p class="text-sm text-[var(--text-secondary)]"><strong>Zielgruppe:</strong> Incident Response Teams. <strong>Inhalt:</strong> Infos über spezifische, laufende Angriffe.</p></div>
+						<div class="p-4 rounded-lg bg-[var(--card-bg)] border-l-4 border-gray-500"><strong class="block text-gray-600">Technische CTI</strong><p class="text-sm text-[var(--text-secondary)]"><strong>Zielgruppe:</strong> Automatisierte Systeme. <strong>Inhalt:</strong> Spezifische <strong class="text-[var(--text-primary)]">IoCs</strong> (Indicators of Compromise) wie Hashes, IPs.</p></div>
+					</div>
+				</div>
+				<div class="glass-card p-6 sm:p-8">
+					<h3 class="text-2xl font-bold mb-4">Angriffsmodelle: Die Cyber Kill Chain</h3>
+					<p class="mb-6 text-[var(--text-secondary)] leading-relaxed">Die von Lockheed Martin entwickelte Cyber Kill Chain ist ein High-Level-Framework, das die typischen Phasen eines Cyberangriffs beschreibt. Das Verständnis dieser Kette hilft, Abwehrmaßnahmen an den richtigen Stellen zu platzieren.</p>
                      <ol class="relative border-l-2 border-gray-200 space-y-6">
                         <li class="ml-10"><span class="absolute -left-5 flex items-center justify-center w-10 h-10 bg-gray-100 rounded-full ring-4 ring-white font-bold text-[var(--accent-primary)]">1</span><strong class="font-semibold block mb-1">Reconnaissance (Aufklärung)</strong><p class="text-sm text-[var(--text-secondary)]">Angreifer sammelt passiv Informationen über das Ziel (z.B. E-Mail-Adressen, Systeminformationen).</p></li>
                         <li class="ml-10"><span class="absolute -left-5 flex items-center justify-center w-10 h-10 bg-gray-100 rounded-full ring-4 ring-white font-bold text-[var(--accent-primary)]">2</span><strong class="font-semibold block mb-1">Weaponization (Bewaffnung)</strong><p class="text-sm text-[var(--text-secondary)]">Angreifer kombiniert einen Exploit mit einer schädlichen Nutzlast (z.B. ein Trojaner in einem PDF).</p></li>
@@ -549,6 +547,147 @@ const modulePageContent = {
             document.querySelectorAll('#main-content .glass-card').forEach(card => {
                 card.classList.add('will-animate');
                 observer.observe(card);
+            });
+        }
+	},
+    "print": {
+        title: "Druckansicht",
+        subtitle: "Kompilierte Inhalte für den Druck.",
+        navTitle: "Drucken (2 Seiten)",
+        navIcon: `<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z"></path></svg>`,
+        mainHtml: `
+            <div class="flex justify-center my-3 no-print gap-4">
+                <button id="trigger-print-btn" class="px-6 py-2.5 bg-green-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-green-700 hover:shadow-lg focus:bg-green-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-green-800 active:shadow-lg transition duration-150 ease-in-out">
+                    <svg aria-hidden="true" focusable="false" data-prefix="fas" class="w-4 h-4 mr-2 inline-block" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M384 368h24a40.12 40.12 0 0040-40V168a40.12 40.12 0 00-40-40H104a40.12 40.12 0 00-40 40v160a40.12 40.12 0 0040 40h24v104a40.12 40.12 0 0040 40h160a40.12 40.12 0 0040-40zM112 176h288v144H112zm224 248H176v-64h160zM48 224a16 16 0 0116-16h16v-16a16 16 0 0132 0v16h16a16 16 0 010 32h-16v16a16 16 0 01-32 0v-16H64a16 16 0 01-16-16z"></path></svg>
+                    Drucken
+                </button>
+                <button id="download-print-pdf-btn" class="px-6 py-2.5 bg-blue-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out">
+                    <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="download" class="w-4 h-4 mr-2 inline-block" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M216 0h80c13.3 0 24 10.7 24 24v168h87.7c17.8 0 26.7 21.5 14.1 34.1L269.7 378.3c-7.5 7.5-19.8 7.5-27.3 0L90.1 226.1c-12.6-12.6-3.7-34.1 14.1-34.1H192V24c0-13.3 10.7-24 24-24zm296 376v112c0 13.3-10.7 24-24 24H24c-13.3 0-24-10.7-24-24V376c0-13.3 10.7-24 24-24h146.7l49 49c20.1 20.1 52.5 20.1 72.6 0l49-49H488c13.3 0 24 10.7 24 24zm-124 88c0-11-9-20-20-20s-20 9-20 20 9 20 20 20 20-9 20-20zm64 0c0-11-9-20-20-20s-20 9-20 20 9 20 20 20 20-9 20-20z"></path></svg>
+                    Als PDF Herunterladen
+                </button>
+            </div>
+            <div id="print-content-area" class="print-container"></div>`,
+        initLogic: function() {
+            // Helper function to create a module block
+            const createModuleBlock = (moduleId) => {
+                const contentEntry = modulePageContent[moduleId];
+                if (!contentEntry) return null;
+
+                const moduleBlock = document.createElement('div');
+                moduleBlock.className = 'topic-block';
+                
+                let titleText = contentEntry.title || contentEntry.navTitle;
+                titleText = titleText.replace(/^VL\d+:\s*/, '');
+
+                const tempDiv = document.createElement('div');
+                tempDiv.innerHTML = contentEntry.mainHtml;
+
+                // Remove unwanted elements for a clean print view
+                tempDiv.querySelectorAll('button, input, script, style, .no-print, [onclick], i.fa-solid, .absolute.flex.-left-4').forEach(el => el.remove());
+                
+                moduleBlock.innerHTML = `<h2>${titleText}</h2>` + tempDiv.innerHTML;
+                return moduleBlock;
+            };
+
+            const printContainer = document.getElementById('print-content-area');
+            printContainer.innerHTML = ''; 
+
+            // --- 1. PREPARE PAGES AND COLUMNS ---
+            const page1 = document.createElement('div');
+            page1.className = 'print-page';
+            page1.id = 'print-page-1';
+            page1.innerHTML = '<div class="print-header"><h1>Prüfungsübersicht</h1><span class="page-number">Seite 1 / 2</span></div><div class="content-grid"></div>';
+            
+            const page2 = document.createElement('div');
+            page2.className = 'print-page';
+            page2.id = 'print-page-2';
+            page2.innerHTML = '<div class="print-header"><h1>Prüfungsübersicht</h1><span class="page-number">Seite 2 / 2</span></div><div class="content-grid"></div>';
+            
+            printContainer.append(page1, page2);
+
+            const page1Grid = page1.querySelector('.content-grid');
+            const page2Grid = page2.querySelector('.content-grid');
+            
+            const p1_columns = [document.createElement('div'), document.createElement('div'), document.createElement('div')];
+            p1_columns.forEach(col => {
+                col.className = 'print-column';
+                page1Grid.appendChild(col);
+            });
+            
+            const p2_columns = [document.createElement('div'), document.createElement('div'), document.createElement('div')];
+            p2_columns.forEach(col => {
+                col.className = 'print-column';
+                page2Grid.appendChild(col);
+            });
+
+            // --- 2. FILTER AND MANUALLY DISTRIBUTE MODULES FOR OPTIMAL LAYOUT ---
+            const printableModuleIds = Object.keys(modulePageContent).filter(id => id !== 'flashcards' && id !== 'print');
+            
+            // Page 1: Automatic balanced distribution
+            const page1ModuleIds = printableModuleIds.slice(0, 4);
+            page1ModuleIds.forEach((moduleId, index) => {
+                p1_columns[index % 3].appendChild(createModuleBlock(moduleId));
+            });
+            
+            // Page 2: Manual distribution for better balance, based on user feedback
+            p2_columns[0].appendChild(createModuleBlock('vl4')); // SNMP
+            p2_columns[1].appendChild(createModuleBlock('vl5')); // Risiko & CVSS
+            p2_columns[2].appendChild(createModuleBlock('vl6')); // Vuln & Patch
+            p2_columns[1].appendChild(createModuleBlock('vl7')); // CTI (added under vl5)
+
+            // --- 3. BUTTON LOGIC ---
+            document.getElementById('trigger-print-btn')?.addEventListener('click', () => window.print());
+
+            document.getElementById('download-print-pdf-btn')?.addEventListener('click', async (e) => {
+                const btn = e.currentTarget;
+                const originalText = btn.innerHTML;
+                
+                // ====================================================================================
+                // WICHTIGER HINWEIS: Die folgenden zwei Skript-Dateien MÜSSEN in Ihrer HTML-Datei
+                // eingebunden sein, damit der PDF-Export funktioniert.
+                //
+                // <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+                // <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+                // ====================================================================================
+                if (typeof html2canvas === 'undefined' || typeof jspdf === 'undefined') {
+                    alert('Fehler: PDF-Bibliotheken nicht gefunden.\n\nBitte bitten Sie Ihren Entwickler, die Skript-Tags für "jsPDF" und "html2canvas" in die HTML-Datei einzufügen.');
+                    return;
+                }
+
+                btn.innerHTML = 'PDF wird generiert...';
+                btn.disabled = true;
+
+                try {
+                    const { jsPDF } = window.jspdf;
+                    const pdf = new jsPDF('p', 'mm', 'a4');
+                    const pdfWidth = pdf.internal.pageSize.getWidth();
+                    const pdfHeight = pdf.internal.pageSize.getHeight();
+
+                    const canvas1 = await html2canvas(document.getElementById('print-page-1'), { scale: 3 });
+                    const canvas2 = await html2canvas(document.getElementById('print-page-2'), { scale: 3 });
+                    
+                    const addImageToPdf = (canvas, pdfInstance) => {
+                         const imgData = canvas.toDataURL('image/png');
+                         const imgProps = pdfInstance.getImageProperties(imgData);
+                         const ratio = imgProps.height / imgProps.width;
+                         const imgHeight = pdfWidth * ratio;
+                         let finalHeight = imgHeight > pdfHeight ? pdfHeight : imgHeight;
+                         pdfInstance.addImage(imgData, 'PNG', 0, 0, pdfWidth, finalHeight);
+                    };
+
+                    addImageToPdf(canvas1, pdf);
+                    pdf.addPage();
+                    addImageToPdf(canvas2, pdf);
+                    
+                    pdf.save('Pruefungsuebersicht.pdf');
+
+                } catch (error) {
+                    console.error("PDF generation failed:", error);
+                    alert("PDF konnte nicht generiert werden. Fehlerdetails in der Konsole.");
+                } finally {
+                    btn.innerHTML = originalText;
+                    btn.disabled = false;
+                }
             });
         }
     }
