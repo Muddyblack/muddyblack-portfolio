@@ -113,20 +113,92 @@ html.dark #suggest-topic-btn .spinner { border-left-color: var(--accent-primary)
     transform: translateY(-2px) scale(1.05);
 }
 
-/* Better border styling for light mode */
-.border-l-4 {
-    border-left-width: 4px !important;
+.border-l-4 { border-left-width: 4px !important; }
+
+/* =============================================== */
+/* Theme-Aware Color & Style Utilities             */
+/* =============================================== */
+
+/* --- Default (Light Mode) Styles --- */
+
+/* Backgrounds */
+.bg-gray-100   { background-color: #f3f4f6; }
+.bg-gray-200   { background-color: #e5e7eb; }
+.bg-red-100    { background-color: #fee2e2; }
+.bg-orange-100 { background-color: #ffedd5; }
+.bg-amber-100  { background-color: #fef3c7; }
+.bg-yellow-100 { background-color: #fef9c3; }
+.bg-yellow-200 { background-color: #fef08a; }
+.bg-lime-100   { background-color: #ecfccb; }
+.bg-green-100  { background-color: #dcfce7; }
+.bg-green-200  { background-color: #bbf7d0; }
+.bg-blue-100   { background-color: #dbeafe; }
+.bg-purple-100 { background-color: #f3e8ff; }
+.bg-teal-100   { background-color: #ccfbf1; }
+
+
+/* Text Colors */
+.text-red-600    { color: #dc2626; }
+.text-red-700    { color: #b91c1c; }
+.text-orange-600 { color: #ea580c; }
+.text-orange-700 { color: #c2410c; }
+.text-amber-700  { color: #b45309; }
+.text-yellow-700 { color: #a16207; }
+.text-lime-700   { color: #65a30d; }
+.text-green-600  { color: #16a34a; }
+.text-green-700  { color: #15803d; }
+.text-blue-600   { color: #2563eb; }
+.text-blue-700   { color: #1d4ed8; }
+.text-purple-700 { color: #7e22ce; }
+.text-gray-600   { color: #4b5563; }
+.text-teal-700   { color: #0d9488; }
+
+
+/* Border Colors */
+.border-red-500    { border-color: #ef4444; }
+.border-orange-500 { border-color: #f97316; }
+.border-amber-500  { border-color: #f59e0b; }
+.border-yellow-500 { border-color: #eab308; }
+.border-green-500  { border-color: #22c55e; }
+.border-blue-500   { border-color: #3b82f6; }
+.border-gray-500   { border-color: #6b7280; }
+
+/* Ring Colors */
+.ring-white { --tw-ring-color: #ffffff; }
+
+/* --- Dark Mode Overrides --- */
+html.dark {
+    /* Backgrounds */
+    .bg-gray-100   { background-color: rgba(55, 65, 81, 0.6); }
+    .bg-gray-200   { background-color: rgba(55, 65, 81, 0.9); }
+    .bg-red-100    { background-color: rgba(127, 29, 29, 0.3); }
+    .bg-orange-100 { background-color: rgba(124, 45, 18, 0.3); }
+    .bg-amber-100  { background-color: rgba(120, 53, 15, 0.3); }
+    .bg-yellow-100 { background-color: rgba(113, 63, 18, 0.3); }
+    .bg-yellow-200 { background-color: rgba(113, 63, 18, 0.5); }
+    .bg-lime-100   { background-color: rgba(77, 124, 15, 0.3); }
+    .bg-green-100  { background-color: rgba(21, 94, 53, 0.3); }
+    .bg-green-200  { background-color: rgba(22, 101, 52, 0.5); }
+    .bg-blue-100   { background-color: rgba(30, 58, 138, 0.4); }
+    .bg-purple-100 { background-color: rgba(88, 28, 135, 0.4); }
+    .bg-teal-100   { background-color: rgba(13, 148, 136, 0.25); }
+    
+    /* Text Colors */
+    .text-red-600    { color: #fca5a5; }
+    .text-red-700    { color: #fca5a5; }
+    .text-orange-600 { color: #fdba74; }
+    .text-orange-700 { color: #fdba74; }
+    .text-amber-700  { color: #fcd34d; }
+    .text-yellow-700 { color: #fde047; }
+    .text-lime-700   { color: #a3e635; }
+    .text-green-600  { color: #86efac; }
+    .text-green-700  { color: #86efac; }
+    .text-blue-600   { color: #93c5fd; }
+    .text-blue-700   { color: #bfdbfe; }
+    .text-purple-700 { color: #e9d5ff; }
+    .text-gray-600   { color: #d1d5db; }
+    .text-teal-700   { color: #5eead4; }
+
+    /* Ring Color */
+    .ring-white { --tw-ring-color: var(--card-border); }
 }
-
-/* Improved background colors for better contrast */
-.bg-red-100 { background-color: rgba(254, 226, 226, 0.8) !important; }
-.bg-blue-100 { background-color: rgba(219, 234, 254, 0.8) !important; }
-.bg-green-100 { background-color: rgba(220, 252, 231, 0.8) !important; }
-.bg-yellow-100 { background-color: rgba(254, 249, 195, 0.8) !important; }
-.bg-purple-100 { background-color: rgba(243, 232, 255, 0.8) !important; }
-.bg-orange-100 { background-color: rgba(255, 237, 213, 0.8) !important; }
-.bg-gray-100 { background-color: rgba(243, 244, 246, 0.9) !important; }
-
-html.dark .bg-gray-100 { background-color: rgba(55, 65, 81, 0.8) !important; }
-
-/* ...existing code... */

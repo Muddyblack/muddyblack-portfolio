@@ -57,12 +57,12 @@ const modulePageContent = {
                     <div class="p-4 bg-[var(--card-bg)] border border-[var(--card-border)] rounded-xl">
                         <h4 class="font-bold text-lg text-[var(--accent-primary)] mb-4 text-center">Die 6 Kernfunktionen des NIST CSF 2.0</h4>
                         <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 text-center">
-                            <div class="p-4 rounded-lg bg-purple-100 dark:bg-purple-900/40"><strong class="block text-purple-700 dark:text-purple-300 text-lg">Govern</strong><span class="text-xs text-[var(--text-secondary)]">Strategie, Richtlinien & Risikomanagement festlegen.</span></div>
-                            <div class="p-4 rounded-lg bg-blue-100 dark:bg-blue-900/40"><strong class="block text-blue-700 dark:text-blue-300 text-lg">Identify</strong><span class="text-xs text-[var(--text-secondary)]">Assets, Systeme und Risiken verstehen.</span></div>
-                            <div class="p-4 rounded-lg bg-green-100 dark:bg-green-900/40"><strong class="block text-green-700 dark:text-green-300 text-lg">Protect</strong><span class="text-xs text-[var(--text-secondary)]">Schutzmaßnahmen implementieren.</span></div>
-                            <div class="p-4 rounded-lg bg-yellow-100 dark:bg-yellow-900/40"><strong class="block text-yellow-700 dark:text-yellow-300 text-lg">Detect</strong><span class="text-xs text-[var(--text-secondary)]">Vorfälle zeitnah erkennen.</span></div>
-                            <div class="p-4 rounded-lg bg-orange-100 dark:bg-orange-900/40"><strong class="block text-orange-700 dark:text-orange-300 text-lg">Respond</strong><span class="text-xs text-[var(--text-secondary)]">Auf erkannte Vorfälle reagieren.</span></div>
-                            <div class="p-4 rounded-lg bg-red-100 dark:bg-red-900/40"><strong class="block text-red-700 dark:text-red-300 text-lg">Recover</strong><span class="text-xs text-[var(--text-secondary)]">Systeme wiederherstellen & verbessern.</span></div>
+                            <div class="p-4 rounded-lg bg-purple-100"><strong class="block text-purple-700 text-lg">Govern</strong><span class="text-xs text-[var(--text-secondary)]">Strategie, Richtlinien & Risikomanagement festlegen.</span></div>
+                            <div class="p-4 rounded-lg bg-blue-100"><strong class="block text-blue-700 text-lg">Identify</strong><span class="text-xs text-[var(--text-secondary)]">Assets, Systeme und Risiken verstehen.</span></div>
+                            <div class="p-4 rounded-lg bg-green-100"><strong class="block text-green-700 text-lg">Protect</strong><span class="text-xs text-[var(--text-secondary)]">Schutzmaßnahmen implementieren.</span></div>
+                            <div class="p-4 rounded-lg bg-yellow-100"><strong class="block text-yellow-700 text-lg">Detect</strong><span class="text-xs text-[var(--text-secondary)]">Vorfälle zeitnah erkennen.</span></div>
+                            <div class="p-4 rounded-lg bg-orange-100"><strong class="block text-orange-700 text-lg">Respond</strong><span class="text-xs text-[var(--text-secondary)]">Auf erkannte Vorfälle reagieren.</span></div>
+                            <div class="p-4 rounded-lg bg-red-100"><strong class="block text-red-700 text-lg">Recover</strong><span class="text-xs text-[var(--text-secondary)]">Systeme wiederherstellen & verbessern.</span></div>
                         </div>
                     </div>
                 </div>
@@ -122,9 +122,9 @@ const modulePageContent = {
                             <h4 class="font-bold text-lg text-[var(--accent-primary)] mb-3">Multi-Faktor-Authentifizierung (MFA) & Einmalpasswörter (OTP)</h4>
                             <p class="mb-4 text-[var(--text-secondary)]">MFA ist der heutige Sicherheitsstandard und kombiniert Anmeldeinformationen aus mindestens zwei der drei folgenden Kategorien:</p>
                              <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-center mb-4">
-                                <div class="p-3 bg-gray-100 dark:bg-gray-700 rounded-lg"><strong class="block">Wissen</strong>(Passwort, PIN)</div>
-                                <div class="p-3 bg-gray-100 dark:bg-gray-700 rounded-lg"><strong class="block">Besitz</strong>(Smartphone-App, Token)</div>
-                                <div class="p-3 bg-gray-100 dark:bg-gray-700 rounded-lg"><strong class="block">Inhärenz</strong>(Fingerabdruck, Gesicht)</div>
+                                <div class="p-3 bg-gray-100 rounded-lg"><strong class="block">Wissen</strong>(Passwort, PIN)</div>
+                                <div class="p-3 bg-gray-100 rounded-lg"><strong class="block">Besitz</strong>(Smartphone-App, Token)</div>
+                                <div class="p-3 bg-gray-100 rounded-lg"><strong class="block">Inhärenz</strong>(Fingerabdruck, Gesicht)</div>
                             </div>
                             <p class="text-[var(--text-secondary)]">Einmalpasswörter (OTPs) sind eine häufige Form des zweiten Faktors (Besitz):</p>
                             <ul class="list-disc list-inside space-y-2 mt-2">
@@ -182,29 +182,29 @@ const modulePageContent = {
                             <div class="flex flex-col items-center"><i class="fa-solid fa-key text-3xl mb-2 text-yellow-400"></i><span class="font-bold">KDC</span><p class="text-xs text-[var(--text-secondary)]">(AS & TGS)</p></div>
                             <div class="flex flex-col items-center"><i class="fa-solid fa-server text-3xl mb-2 text-green-400"></i><span class="font-bold">Dienst</span></div>
                         </div>
-                        <ol class="relative border-l border-gray-200 dark:border-gray-700 space-y-6">
+                        <ol class="relative border-l border-gray-200 space-y-6">
                             <li class="ml-6">
-                                <span class="absolute flex items-center justify-center w-8 h-8 bg-blue-100 rounded-full -left-4 ring-8 ring-white dark:ring-gray-800 dark:bg-blue-900"><i class="fa-solid fa-1 text-blue-600 dark:text-blue-300"></i></span>
+                                <span class="absolute flex items-center justify-center w-8 h-8 bg-blue-100 rounded-full -left-4 ring-8 ring-white"><i class="fa-solid fa-1 text-blue-600"></i></span>
                                 <h4 class="font-semibold">Anforderung des TGT (Ticket-Granting Ticket)</h4>
                                 <p class="text-sm text-[var(--text-secondary)] mt-1">Client <i class="fa-solid fa-arrow-right-long mx-2"></i> KDC (AS). Der Client sendet eine <strong class="text-[var(--text-primary)]">AS-REQ</strong>-Nachricht mit seiner Benutzer-ID an den Authentication Server (AS). Optional wird ein mit dem Benutzerpasswort-Hash verschlüsselter Zeitstempel zur Prä-Authentifizierung mitgesendet.</p>
                             </li>
                              <li class="ml-6">
-                                <span class="absolute flex items-center justify-center w-8 h-8 bg-blue-100 rounded-full -left-4 ring-8 ring-white dark:ring-gray-800 dark:bg-blue-900"><i class="fa-solid fa-2 text-blue-600 dark:text-blue-300"></i></span>
+                                <span class="absolute flex items-center justify-center w-8 h-8 bg-blue-100 rounded-full -left-4 ring-8 ring-white"><i class="fa-solid fa-2 text-blue-600"></i></span>
                                 <h4 class="font-semibold">Empfang des TGT</h4>
                                 <p class="text-sm text-[var(--text-secondary)] mt-1">KDC (AS) <i class="fa-solid fa-arrow-right-long mx-2"></i> Client. Der AS prüft den Benutzer. Ist er gültig, sendet er eine <strong class="text-[var(--text-primary)]">AS-REP</strong> zurück. Diese enthält: <br>A) das <strong class="text-[var(--text-primary)]">TGT</strong> (verschlüsselt mit dem geheimen Schlüssel des KDC) <br>B) einen <strong class="text-[var(--text-primary)]">Session Key</strong> (Sitzungsschlüssel, verschlüsselt mit dem Passwort-Hash des Benutzers).</p>
                             </li>
                              <li class="ml-6">
-                                <span class="absolute flex items-center justify-center w-8 h-8 bg-yellow-100 rounded-full -left-4 ring-8 ring-white dark:ring-gray-800 dark:bg-yellow-900"><i class="fa-solid fa-3 text-yellow-600 dark:text-yellow-300"></i></span>
+                                <span class="absolute flex items-center justify-center w-8 h-8 bg-yellow-100 rounded-full -left-4 ring-8 ring-white"><i class="fa-solid fa-3 text-yellow-700"></i></span>
                                 <h4 class="font-semibold">Anforderung des Service Tickets (ST)</h4>
                                 <p class="text-sm text-[var(--text-secondary)] mt-1">Client <i class="fa-solid fa-arrow-right-long mx-2"></i> KDC (TGS). Um auf einen Dienst zuzugreifen, sendet der Client eine <strong class="text-[var(--text-primary)]">TGS-REQ</strong> an den Ticket-Granting Server (TGS). Diese enthält: <br>A) das erhaltene <strong class="text-[var(--text-primary)]">TGT</strong> <br>B) die ID des Zieldienstes <br>C) einen Authenticator (Zeitstempel, verschlüsselt mit dem Session Key).</p>
                             </li>
                              <li class="ml-6">
-                                <span class="absolute flex items-center justify-center w-8 h-8 bg-green-100 rounded-full -left-4 ring-8 ring-white dark:ring-gray-800 dark:bg-green-900"><i class="fa-solid fa-4 text-green-600 dark:text-green-300"></i></span>
+                                <span class="absolute flex items-center justify-center w-8 h-8 bg-green-100 rounded-full -left-4 ring-8 ring-white"><i class="fa-solid fa-4 text-green-600"></i></span>
                                 <h4 class="font-semibold">Empfang des Service Tickets</h4>
                                 <p class="text-sm text-[var(--text-secondary)] mt-1">KDC (TGS) <i class="fa-solid fa-arrow-right-long mx-2"></i> Client. Der TGS entschlüsselt das TGT, prüft den Authenticator und stellt ein <strong class="text-[var(--text-primary)]">Service Ticket (ST)</strong> aus. Dieses wird mit dem geheimen Schlüssel des <strong class="text-[var(--text-primary)]">Zieldienstes</strong> verschlüsselt und an den Client gesendet.</p>
                             </li>
                               <li class="ml-6">
-                                <span class="absolute flex items-center justify-center w-8 h-8 bg-green-100 rounded-full -left-4 ring-8 ring-white dark:ring-gray-800 dark:bg-green-900"><i class="fa-solid fa-5 text-green-600 dark:text-green-300"></i></span>
+                                <span class="absolute flex items-center justify-center w-8 h-8 bg-green-100 rounded-full -left-4 ring-8 ring-white"><i class="fa-solid fa-5 text-green-600"></i></span>
                                 <h4 class="font-semibold">Zugriff auf den Dienst</h4>
                                 <p class="text-sm text-[var(--text-secondary)] mt-1">Client <i class="fa-solid fa-arrow-right-long mx-2"></i> Dienst. Der Client sendet das <strong class="text-[var(--text-primary)]">Service Ticket (ST)</strong> an den Zieldienst. Der Dienst kann das ST mit seinem eigenen geheimen Schlüssel entschlüsseln, die Informationen darin verifizieren und dem Client Zugriff gewähren. Es werden keine Passwörter oder Hashes an den Dienst gesendet.</p>
                             </li>
@@ -248,12 +248,12 @@ const modulePageContent = {
 							<strong class="block text-[var(--accent-primary)]">Kerberoasting</strong>
 							<p class="text-sm text-[var(--text-secondary)] mt-1">Ein Angreifer mit einem beliebigen gültigen Domänenkonto fordert ein Service Ticket (ST) für einen Dienst an. Das Ticket ist mit dem Passwort-Hash des <strong class="text-[var(--text-primary)]">Dienstkontos</strong> verschlüsselt. Der Angreifer knackt dieses offline und zielt so auf schwache Passwörter von Dienstkonten ab.</p>
 						</div>
-						<div class="p-4 rounded-lg bg-yellow-100 dark:bg-yellow-900/20 border-l-4 border-yellow-500">
-							<strong class="block text-yellow-700 dark:text-yellow-400">Silver Ticket</strong>
+						<div class="p-4 rounded-lg bg-yellow-100 border-l-4 border-yellow-500">
+							<strong class="block text-yellow-700">Silver Ticket</strong>
 							<p class="text-sm text-[var(--text-secondary)] mt-1">Ein gefälschtes <strong class="text-[var(--text-primary)]">Service Ticket (ST)</strong>. Erfordert den Passwort-Hash des Ziel-Dienstes. Gewährt nur Zugriff auf <strong class="text-[var(--text-primary)]">diesen einen Dienst</strong>, ist aber sehr schwer zu entdecken, da die Kommunikation nur zwischen Client und Dienst stattfindet.</p>
 						</div>
-						<div class="p-4 rounded-lg bg-red-100 dark:bg-red-900/20 border-l-4 border-red-500">
-							<strong class="block text-red-700 dark:text-red-400">Golden Ticket</strong>
+						<div class="p-4 rounded-lg bg-red-100 border-l-4 border-red-500">
+							<strong class="block text-red-700">Golden Ticket</strong>
 							<p class="text-sm text-[var(--text-secondary)] mt-1">Ein gefälschtes <strong class="text-[var(--text-primary)]">Ticket-Granting Ticket (TGT)</strong>. Erfordert den Hash des speziellen <strong class="text-[var(--text-primary)]">krbtgt-Kontos</strong> vom Domain Controller. Ein Golden Ticket gewährt vollständigen, dauerhaften Domänen-Admin-Zugriff und kann für jeden Benutzer ausgestellt werden. Der "Super-GAU".</p>
 						</div>
 						<div class="p-4 rounded-lg bg-[var(--card-bg)] border border-[var(--card-border)] md:col-span-2">
@@ -267,7 +267,7 @@ const modulePageContent = {
 					<p class="mb-6 text-[var(--text-secondary)] leading-relaxed">Ermöglicht Benutzern, sich einmal bei einem zentralen Dienst anzumelden und dann nahtlos auf mehrere verbundene Anwendungen zuzugreifen, ohne sich erneut authentifizieren zu müssen.</p>
 					<div class="flex flex-col md:flex-row gap-6">
 						<div class="flex-1 p-6 bg-[var(--card-bg)] border border-[var(--card-border)] rounded-lg">
-							<h5 class="font-bold text-lg mb-2 text-blue-500">SAML 2.0 (für Authentifizierung)</h5>
+							<h5 class="font-bold text-lg mb-2 text-blue-600">SAML 2.0 (für Authentifizierung)</h5>
 							<p class="text-sm text-[var(--text-secondary)]">Wird typischerweise in Unternehmensumgebungen verwendet, um den Login zu ermöglichen.
 							<strong class="block mt-2 text-[var(--text-primary)]">Ablauf:</strong>
 							1. Nutzer greift auf Service Provider (SP) zu.
@@ -277,7 +277,7 @@ const modulePageContent = {
 							5. SP vertraut der Assertion und gewährt dem Nutzer Zugriff.</p>
 						</div>
 						<div class="flex-1 p-6 bg-[var(--card-bg)] border border-[var(--card-border)] rounded-lg">
-							<h5 class="font-bold text-lg mb-2 text-purple-500">OAuth 2.0 (für delegierte Autorisierung)</h5>
+							<h5 class="font-bold text-lg mb-2 text-purple-700">OAuth 2.0 (für delegierte Autorisierung)</h5>
 							<p class="text-sm text-[var(--text-secondary)]">Wird verwendet, um einer Anwendung zu erlauben, im Namen eines Benutzers auf dessen Daten zuzugreifen (z.B. "App möchte auf deine Google-Kontakte zugreifen"). Es geht nicht primär um den Login des Nutzers, sondern um die Berechtigung für eine App.
 							<strong class="block mt-2 text-[var(--text-primary)]">Schlüsselkonzepte:</strong> Verwendet "Scopes", um den Umfang der Berechtigungen zu definieren, und "Access Tokens", um den Zugriff zu gewähren, ohne dass der Nutzer sein Passwort teilen muss.</p>
 						</div>
@@ -315,18 +315,18 @@ const modulePageContent = {
                         <div>
                            <h4 class="font-bold text-lg text-[var(--accent-primary)] mb-3">Kernarchitektur</h4>
                             <ul class="list-none space-y-4">
-                                <li class="flex items-start gap-4"><div class="flex-shrink-0 w-12 h-12 bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 rounded-lg flex items-center justify-center"><i class="fa-solid fa-server fa-lg"></i></div><div><h5 class="font-bold">Manager (NMS)</h5><p class="text-sm text-[var(--text-secondary)]">Ein zentraler Server, der die Überwachung durchführt, Daten von Agenten abfragt und Befehle sendet.</p></div></li>
-                                <li class="flex items-start gap-4"><div class="flex-shrink-0 w-12 h-12 bg-green-100 dark:bg-green-900/30 text-green-600 dark:text-green-400 rounded-lg flex items-center justify-center"><i class="fa-solid fa-microchip fa-lg"></i></div><div><h5 class="font-bold">Agent</h5><p class="text-sm text-[var(--text-secondary)]">Eine Software, die auf dem verwalteten Gerät läuft, lokale Daten sammelt und auf Anfragen des Managers antwortet.</p></div></li>
-                                <li class="flex items-start gap-4"><div class="flex-shrink-0 w-12 h-12 bg-purple-100 dark:bg-purple-900/30 text-purple-600 dark:text-purple-400 rounded-lg flex items-center justify-center"><i class="fa-solid fa-database fa-lg"></i></div><div><h5 class="font-bold">MIB (Management Information Base)</h5><p class="text-sm text-[var(--text-secondary)]">Eine hierarchische Datenbank auf dem Agenten, die alle verwaltbaren Objekte (z.B. CPU-Auslastung) über eine eindeutige <strong>Object Identifier (OID)</strong> definiert.</p></div></li>
+                                <li class="flex items-start gap-4"><div class="flex-shrink-0 w-12 h-12 bg-blue-100 text-blue-600 rounded-lg flex items-center justify-center"><i class="fa-solid fa-server fa-lg"></i></div><div><h5 class="font-bold">Manager (NMS)</h5><p class="text-sm text-[var(--text-secondary)]">Ein zentraler Server, der die Überwachung durchführt, Daten von Agenten abfragt und Befehle sendet.</p></div></li>
+                                <li class="flex items-start gap-4"><div class="flex-shrink-0 w-12 h-12 bg-green-100 text-green-600 rounded-lg flex items-center justify-center"><i class="fa-solid fa-microchip fa-lg"></i></div><div><h5 class="font-bold">Agent</h5><p class="text-sm text-[var(--text-secondary)]">Eine Software, die auf dem verwalteten Gerät läuft, lokale Daten sammelt und auf Anfragen des Managers antwortet.</p></div></li>
+                                <li class="flex items-start gap-4"><div class="flex-shrink-0 w-12 h-12 bg-purple-100 text-purple-700 rounded-lg flex items-center justify-center"><i class="fa-solid fa-database fa-lg"></i></div><div><h5 class="font-bold">MIB (Management Information Base)</h5><p class="text-sm text-[var(--text-secondary)]">Eine hierarchische Datenbank auf dem Agenten, die alle verwaltbaren Objekte (z.B. CPU-Auslastung) über eine eindeutige <strong>Object Identifier (OID)</strong> definiert.</p></div></li>
                             </ul>
                         </div>
                          <div class="p-6 bg-[var(--card-bg)] border border-[var(--card-border)] rounded-xl">
                             <h4 class="font-bold text-lg text-[var(--accent-primary)] mb-3 text-center">Wichtige Protokolloperationen</h4>
                             <div class="text-center space-y-2">
-                                <div class="p-3 bg-gray-100 dark:bg-gray-700 rounded-md"><strong>Get-Request:</strong> Manager fordert den Wert einer OID von einem Agenten an.</div>
-                                <div class="p-3 bg-gray-100 dark:bg-gray-700 rounded-md"><strong>Set-Request:</strong> Manager ändert einen beschreibbaren Wert auf einem Agenten (z.B. den Systemnamen).</div>
-                                <div class="p-3 bg-gray-100 dark:bg-gray-700 rounded-md"><strong>Response:</strong> Die Antwort des Agenten auf eine Get- oder Set-Anfrage.</div>
-                                <div class="p-3 bg-red-100 dark:bg-red-900/40 rounded-md"><strong class="text-red-700 dark:text-red-300">Trap:</strong> Eine unaufgeforderte, asynchrone Nachricht von einem Agenten an den Manager, um über ein wichtiges Ereignis zu informieren (z.B. "Netzwerkschnittstelle ausgefallen").</div>
+                                <div class="p-3 bg-gray-100 rounded-md"><strong>Get-Request:</strong> Manager fordert den Wert einer OID von einem Agenten an.</div>
+                                <div class="p-3 bg-gray-100 rounded-md"><strong>Set-Request:</strong> Manager ändert einen beschreibbaren Wert auf einem Agenten (z.B. den Systemnamen).</div>
+                                <div class="p-3 bg-gray-100 rounded-md"><strong>Response:</strong> Die Antwort des Agenten auf eine Get- oder Set-Anfrage.</div>
+                                <div class="p-3 bg-red-100 rounded-md"><strong class="text-red-700">Trap:</strong> Eine unaufgeforderte, asynchrone Nachricht von einem Agenten an den Manager, um über ein wichtiges Ereignis zu informieren (z.B. "Netzwerkschnittstelle ausgefallen").</div>
                             </div>
                         </div>
                     </div>
@@ -335,22 +335,22 @@ const modulePageContent = {
                     <h3 class="text-2xl font-bold mb-4">SNMP-Sicherheit: v2c vs. v3 (Prüfungsrelevant)</h3>
                     <p class="mb-6 text-[var(--text-secondary)] leading-relaxed">Die Wahl der SNMP-Version ist aus Sicherheitssicht entscheidend. SNMPv3 ist die einzig empfohlene Version für den produktiven Einsatz.</p>
                     <div class="flex flex-col md:flex-row gap-6">
-                        <div class="flex-1 p-6 bg-red-100 dark:bg-red-900/20 border-2 border-red-500/50 rounded-lg">
-                            <h5 class="font-bold text-xl text-red-600 dark:text-red-400 mb-2">SNMPv1/v2c (UNSICHER)</h5>
-                            <p class="text-sm text-red-800 dark:text-red-300">Verwendet zur Authentifizierung lediglich eine <strong class="text-[var(--text-primary)]">"Community-Zeichenfolge"</strong>, die unverschlüsselt im Klartext über das Netzwerk gesendet wird. Diese kann leicht abgefangen und missbraucht werden.</p>
+                        <div class="flex-1 p-6 bg-red-100 border-2 border-red-500/50 rounded-lg">
+                            <h5 class="font-bold text-xl text-red-600 mb-2">SNMPv1/v2c (UNSICHER)</h5>
+                            <p class="text-sm text-red-700">Verwendet zur Authentifizierung lediglich eine <strong class="text-[var(--text-primary)]">"Community-Zeichenfolge"</strong>, die unverschlüsselt im Klartext über das Netzwerk gesendet wird. Diese kann leicht abgefangen und missbraucht werden.</p>
                         </div>
-                        <div class="flex-1 p-6 bg-green-100 dark:bg-green-900/20 border-2 border-green-500/50 rounded-lg">
-                            <h5 class="font-bold text-xl text-green-600 dark:text-green-400 mb-2">SNMPv3 (SICHER)</h5>
-                            <p class="text-sm text-green-800 dark:text-green-300 mb-4">Führt ein robustes, benutzerbasiertes Sicherheitsmodell ein. Es trennt klar zwischen Authentifizierung/Verschlüsselung und Zugriffskontrolle:</p>
+                        <div class="flex-1 p-6 bg-green-100 border-2 border-green-500/50 rounded-lg">
+                            <h5 class="font-bold text-xl text-green-600 mb-2">SNMPv3 (SICHER)</h5>
+                            <p class="text-sm text-green-700 mb-4">Führt ein robustes, benutzerbasiertes Sicherheitsmodell ein. Es trennt klar zwischen Authentifizierung/Verschlüsselung und Zugriffskontrolle:</p>
                              <ul class="list-disc list-inside space-y-2 text-sm text-[var(--text-secondary)]">
                                 <li><strong class="text-[var(--text-primary)]">USM (User-based Security Model):</strong> Verantwortlich für <strong class="text-[var(--text-primary)]">Authentizität</strong> (wer bist du?) und <strong class="text-[var(--text-primary)]">Privatsphäre</strong> (Verschlüsselung der Nachricht).</li>
                                 <li><strong class="text-[var(--text-primary)]">VACM (View-based Access Control Model):</strong> Verantwortlich für <strong class="text-[var(--text-primary)]">Autorisierung</strong> (was darfst du sehen/ändern?). Definiert über "Views" (Teilmengen des MIB-Baums), welchen Benutzern oder Gruppen Zugriff auf welche OIDs gewährt wird.</li>
                              </ul>
-                             <p class="text-sm text-green-800 dark:text-green-300 mt-4">SNMPv3 bietet drei Sicherheitsstufen:</p>
+                             <p class="text-sm text-green-700 mt-4">SNMPv3 bietet drei Sicherheitsstufen:</p>
                              <div class="mt-2 text-sm space-y-1">
-                                <div><span class="font-mono p-1 bg-gray-200 dark:bg-gray-600 rounded">noAuthNoPriv:</span> Keine Sicherheit (wie v2c).</div>
-                                <div><span class="font-mono p-1 bg-yellow-200 dark:bg-yellow-800 rounded">authNoPriv:</span> Nur Authentifizierung (Nachricht ist verifiziert, aber nicht verschlüsselt).</div>
-                                <div><span class="font-mono p-1 bg-green-200 dark:bg-green-800 rounded">authPriv:</span> Authentifizierung & Verschlüsselung (höchste Sicherheit).</div>
+                                <div><span class="font-mono p-1 bg-gray-200 rounded">noAuthNoPriv:</span> Keine Sicherheit (wie v2c).</div>
+                                <div><span class="font-mono p-1 bg-yellow-200 rounded">authNoPriv:</span> Nur Authentifizierung (Nachricht ist verifiziert, aber nicht verschlüsselt).</div>
+                                <div><span class="font-mono p-1 bg-green-200 rounded">authPriv:</span> Authentifizierung & Verschlüsselung (höchste Sicherheit).</div>
                             </div>
                         </div>
                     </div>
@@ -395,14 +395,14 @@ const modulePageContent = {
                             <ul class="space-y-3">
                                 <li><strong class="text-[var(--text-primary)]">Base Score:</strong> Beschreibt die inhärenten, unveränderlichen technischen Eigenschaften der Schwachstelle (z.B. wie leicht sie auszunutzen ist). Dies ist der Wert, den man typischerweise in Datenbanken sieht.</li>
                                 <li><strong class="text-[var(--text-primary)]">Temporal Score:</strong> Passt den Base Score an, basierend auf zeitabhängigen Faktoren wie der Verfügbarkeit eines Exploits oder eines offiziellen Patches.</li>
-                                <li class="p-3 bg-red-100 dark:bg-red-900/20 border-l-4 border-red-500 rounded-r-md"><strong class="text-red-700 dark:text-red-400">Environmental Score (Der Wichtigste für eine Organisation!):</strong> Dieser Score wird von der Organisation selbst berechnet. Er passt den Temporal Score an den spezifischen Geschäftskontext an. Er beantwortet die Frage: "Wie schlimm ist diese Schwachstelle <strong class="text-[var(--text-primary)]">für uns</strong>?"</li>
+                                <li class="p-3 bg-red-100 border-l-4 border-red-500 rounded-r-md"><strong class="text-red-700">Environmental Score (Der Wichtigste für eine Organisation!):</strong> Dieser Score wird von der Organisation selbst berechnet. Er passt den Temporal Score an den spezifischen Geschäftskontext an. Er beantwortet die Frage: "Wie schlimm ist diese Schwachstelle <strong class="text-[var(--text-primary)]">für uns</strong>?"</li>
                             </ul>
                         </div>
                         <div class="lg:col-span-2 p-6 bg-[var(--card-bg)] border border-[var(--card-border)] rounded-xl text-center">
-                            <h4 class="font-bold text-lg text-teal-500 dark:text-teal-400 mb-3">Business Impact Analysis (BIA)</h4>
+                            <h4 class="font-bold text-lg text-teal-700 mb-3">Business Impact Analysis (BIA)</h4>
                             <p class="text-sm text-[var(--text-secondary)] mb-4">Ein Prozess zur Identifizierung der kritischsten Geschäftsfunktionen und zur Bewertung der potenziellen (finanziellen, reputationellen, operativen) Auswirkungen ihrer Störung.</p>
                             <div class="text-2xl font-light text-gray-400 my-2">▼</div>
-                            <p class="p-3 bg-teal-100 dark:bg-teal-900/30 rounded-lg text-sm"><strong class="text-teal-700 dark:text-teal-400">Die BIA liefert den entscheidenden Input für den CVSS Environmental Score.</strong> Nur durch die BIA weiß man, ob ein betroffenes System geschäftskritisch ist (z.B. ein Patientendaten-System) oder nicht (z.B. eine interne Test-Webseite), und kann die Priorität der Behebung korrekt festlegen.</p>
+                            <p class="p-3 bg-teal-100 rounded-lg text-sm"><strong class="text-teal-700">Die BIA liefert den entscheidenden Input für den CVSS Environmental Score.</strong> Nur durch die BIA weiß man, ob ein betroffenes System geschäftskritisch ist (z.B. ein Patientendaten-System) oder nicht (z.B. eine interne Test-Webseite), und kann die Priorität der Behebung korrekt festlegen.</p>
                         </div>
                     </div>
                 </div>
@@ -435,11 +435,11 @@ const modulePageContent = {
                     <h3 class="text-2xl font-bold mb-4">Lebenszyklus des Schwachstellenmanagements</h3>
                     <p class="mb-6 text-[var(--text-secondary)] leading-relaxed">Dies ist ein kontinuierlicher, zyklischer Prozess, der sicherstellt, dass Schwachstellen systematisch gehandhabt werden.</p>
                     <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 text-center">
-                        <div class="p-3 bg-gray-100 dark:bg-gray-700 rounded-lg"><strong class="block">1. Entdeckung</strong><span class="text-xs text-[var(--text-secondary)]">Scannen nach Schwachstellen</span></div>
-                        <div class="p-3 bg-gray-100 dark:bg-gray-700 rounded-lg"><strong class="block">2. Analyse & Priorisierung</strong><span class="text-xs text-[var(--text-secondary)]">Bewertung mit CVSS/BIA</span></div>
-                        <div class="p-3 bg-gray-100 dark:bg-gray-700 rounded-lg"><strong class="block">3. Berichterstattung</strong><span class="text-xs text-[var(--text-secondary)]">Infos an zuständige Teams</span></div>
-                        <div class="p-3 bg-lime-100 dark:bg-lime-900/30 rounded-lg"><strong class="block text-lime-700 dark:text-lime-300">4. Behebung</strong><span class="text-xs text-[var(--text-secondary)]">Patch oder Workaround anwenden</span></div>
-                        <div class="p-3 bg-gray-100 dark:bg-gray-700 rounded-lg"><strong class="block">5. Überprüfung</strong><span class="text-xs text-[var(--text-secondary)]">Erneuter Scan zur Bestätigung</span></div>
+                        <div class="p-3 bg-gray-100 rounded-lg"><strong class="block">1. Entdeckung</strong><span class="text-xs text-[var(--text-secondary)]">Scannen nach Schwachstellen</span></div>
+                        <div class="p-3 bg-gray-100 rounded-lg"><strong class="block">2. Analyse & Priorisierung</strong><span class="text-xs text-[var(--text-secondary)]">Bewertung mit CVSS/BIA</span></div>
+                        <div class="p-3 bg-gray-100 rounded-lg"><strong class="block">3. Berichterstattung</strong><span class="text-xs text-[var(--text-secondary)]">Infos an zuständige Teams</span></div>
+                        <div class="p-3 bg-lime-100 rounded-lg"><strong class="block text-lime-700">4. Behebung</strong><span class="text-xs text-[var(--text-secondary)]">Patch oder Workaround anwenden</span></div>
+                        <div class="p-3 bg-gray-100 rounded-lg"><strong class="block">5. Überprüfung</strong><span class="text-xs text-[var(--text-secondary)]">Erneuter Scan zur Bestätigung</span></div>
                     </div>
                 </div>
                 <div class="glass-card p-6 sm:p-8">
@@ -480,8 +480,8 @@ const modulePageContent = {
                                 <li><strong class="text-[var(--text-primary)]">Notfall-Patchen (Emergency Patching):</strong> Eine ungeplante, sofortige Bereitstellung als Reaktion auf eine kritische, aktiv ausgenutzte Schwachstelle (Zero-Day). Hier wird das Risiko eines ungeplanten Ausfalls gegen das Sicherheitsrisiko abgewogen.</li>
                             </ul>
                         </div>
-                         <div class="p-4 bg-amber-100 dark:bg-amber-900/20 border-l-4 border-amber-500 rounded-r-lg">
-                            <h5 class="font-bold text-amber-700 dark:text-amber-400">Die goldene Regel: Rollback-Pläne</h5>
+                         <div class="p-4 bg-amber-100 border-l-4 border-amber-500 rounded-r-lg">
+                            <h5 class="font-bold text-amber-700">Die goldene Regel: Rollback-Pläne</h5>
                              <p class="text-sm text-[var(--text-secondary)]">Ein entscheidender Teil des Patch-Managements. Da jeder Patch potenziell neue Probleme verursachen kann, muss immer ein getesteter Plan zur Rückgängigmachung der Änderung existieren. Dies kann durch die Neuinstallation der alten Softwareversion oder, was üblicher ist, durch die schnelle Wiederherstellung eines Snapshots des Systems (auf VM- oder Dateisystemebene) von vor dem Patch erfolgen.</p>
                         </div>
                     </div>
@@ -515,23 +515,23 @@ const modulePageContent = {
                     <h3 class="text-2xl font-bold mb-4">Die vier Arten von Cyber Threat Intelligence (CTI)</h3>
                     <p class="mb-6 text-[var(--text-secondary)] leading-relaxed">CTI ist evidenzbasiertes Wissen über Bedrohungen, das für verschiedene Zielgruppen aufbereitet wird, um fundierte Sicherheitsentscheidungen zu ermöglichen.</p>
                     <div class="space-y-3">
-                        <div class="p-4 rounded-lg bg-[var(--card-bg)] border-l-4 border-red-500"><strong class="block text-red-600 dark:text-red-400">Strategische CTI</strong><p class="text-sm text-[var(--text-secondary)]"><strong>Zielgruppe:</strong> Führungskräfte. <strong>Inhalt:</strong> High-Level-Trends, Geschäftsrisiken, Motivation von Angreifern.</p></div>
-                        <div class="p-4 rounded-lg bg-[var(--card-bg)] border-l-4 border-orange-500"><strong class="block text-orange-600 dark:text-orange-400">Taktische CTI</strong><p class="text-sm text-[var(--text-secondary)]"><strong>Zielgruppe:</strong> Sicherheitsteams. <strong>Inhalt:</strong> Detaillierte <strong class="text-[var(--text-primary)]">TTPs</strong> (Taktiken, Techniken, Prozeduren) von Angreifern.</p></div>
-                        <div class="p-4 rounded-lg bg-[var(--card-bg)] border-l-4 border-blue-500"><strong class="block text-blue-600 dark:text-blue-400">Operative CTI</strong><p class="text-sm text-[var(--text-secondary)]"><strong>Zielgruppe:</strong> Incident Response Teams. <strong>Inhalt:</strong> Infos über spezifische, laufende Angriffe.</p></div>
-                        <div class="p-4 rounded-lg bg-[var(--card-bg)] border-l-4 border-gray-500"><strong class="block text-gray-600 dark:text-gray-400">Technische CTI</strong><p class="text-sm text-[var(--text-secondary)]"><strong>Zielgruppe:</strong> Automatisierte Systeme. <strong>Inhalt:</strong> Spezifische <strong class="text-[var(--text-primary)]">IoCs</strong> (Indicators of Compromise) wie Hashes, IPs.</p></div>
+                        <div class="p-4 rounded-lg bg-[var(--card-bg)] border-l-4 border-red-500"><strong class="block text-red-600">Strategische CTI</strong><p class="text-sm text-[var(--text-secondary)]"><strong>Zielgruppe:</strong> Führungskräfte. <strong>Inhalt:</strong> High-Level-Trends, Geschäftsrisiken, Motivation von Angreifern.</p></div>
+                        <div class="p-4 rounded-lg bg-[var(--card-bg)] border-l-4 border-orange-500"><strong class="block text-orange-600">Taktische CTI</strong><p class="text-sm text-[var(--text-secondary)]"><strong>Zielgruppe:</strong> Sicherheitsteams. <strong>Inhalt:</strong> Detaillierte <strong class="text-[var(--text-primary)]">TTPs</strong> (Taktiken, Techniken, Prozeduren) von Angreifern.</p></div>
+                        <div class="p-4 rounded-lg bg-[var(--card-bg)] border-l-4 border-blue-500"><strong class="block text-blue-600">Operative CTI</strong><p class="text-sm text-[var(--text-secondary)]"><strong>Zielgruppe:</strong> Incident Response Teams. <strong>Inhalt:</strong> Infos über spezifische, laufende Angriffe.</p></div>
+                        <div class="p-4 rounded-lg bg-[var(--card-bg)] border-l-4 border-gray-500"><strong class="block text-gray-600">Technische CTI</strong><p class="text-sm text-[var(--text-secondary)]"><strong>Zielgruppe:</strong> Automatisierte Systeme. <strong>Inhalt:</strong> Spezifische <strong class="text-[var(--text-primary)]">IoCs</strong> (Indicators of Compromise) wie Hashes, IPs.</p></div>
                     </div>
                 </div>
                 <div class="glass-card p-6 sm:p-8">
                     <h3 class="text-2xl font-bold mb-4">Angriffsmodelle: Die Cyber Kill Chain</h3>
                     <p class="mb-6 text-[var(--text-secondary)] leading-relaxed">Die von Lockheed Martin entwickelte Cyber Kill Chain ist ein High-Level-Framework, das die typischen Phasen eines Cyberangriffs beschreibt. Das Verständnis dieser Kette hilft, Abwehrmaßnahmen an den richtigen Stellen zu platzieren.</p>
-                     <ol class="relative border-l-2 border-gray-200 dark:border-gray-700 space-y-6">
-                        <li class="ml-10"><span class="absolute -left-5 flex items-center justify-center w-10 h-10 bg-gray-100 dark:bg-gray-700 rounded-full ring-4 ring-white dark:ring-gray-800 font-bold text-[var(--accent-primary)]">1</span><strong class="font-semibold block mb-1">Reconnaissance (Aufklärung)</strong><p class="text-sm text-[var(--text-secondary)]">Angreifer sammelt passiv Informationen über das Ziel (z.B. E-Mail-Adressen, Systeminformationen).</p></li>
-                        <li class="ml-10"><span class="absolute -left-5 flex items-center justify-center w-10 h-10 bg-gray-100 dark:bg-gray-700 rounded-full ring-4 ring-white dark:ring-gray-800 font-bold text-[var(--accent-primary)]">2</span><strong class="font-semibold block mb-1">Weaponization (Bewaffnung)</strong><p class="text-sm text-[var(--text-secondary)]">Angreifer kombiniert einen Exploit mit einer schädlichen Nutzlast (z.B. ein Trojaner in einem PDF).</p></li>
-                        <li class="ml-10"><span class="absolute -left-5 flex items-center justify-center w-10 h-10 bg-gray-100 dark:bg-gray-700 rounded-full ring-4 ring-white dark:ring-gray-800 font-bold text-[var(--accent-primary)]">3</span><strong class="font-semibold block mb-1">Delivery (Zustellung)</strong><p class="text-sm text-[var(--text-secondary)]">Die "Waffe" wird zum Ziel transportiert (z.B. per Phishing-E-Mail, USB-Stick, Web-Download).</p></li>
-                        <li class="ml-10"><span class="absolute -left-5 flex items-center justify-center w-10 h-10 bg-gray-100 dark:bg-gray-700 rounded-full ring-4 ring-white dark:ring-gray-800 font-bold text-[var(--accent-primary)]">4</span><strong class="font-semibold block mb-1">Exploitation (Ausnutzung)</strong><p class="text-sm text-[var(--text-secondary)]">Die Schwachstelle auf dem Zielsystem wird ausgenutzt, um den Code der Nutzlast auszuführen.</p></li>
-                        <li class="ml-10"><span class="absolute -left-5 flex items-center justify-center w-10 h-10 bg-gray-100 dark:bg-gray-700 rounded-full ring-4 ring-white dark:ring-gray-800 font-bold text-[var(--accent-primary)]">5</span><strong class="font-semibold block mb-1">Installation</strong><p class="text-sm text-[var(--text-secondary)]">Malware wird auf dem System installiert, um dauerhaften Zugriff (Persistenz) zu gewährleisten.</p></li>
-                        <li class="ml-10"><span class="absolute -left-5 flex items-center justify-center w-10 h-10 bg-gray-100 dark:bg-gray-700 rounded-full ring-4 ring-white dark:ring-gray-800 font-bold text-[var(--accent-primary)]">6</span><strong class="font-semibold block mb-1">Command & Control (C2)</strong><p class="text-sm text-[var(--text-secondary)]">Die Malware baut einen Kommunikationskanal zu einem vom Angreifer kontrollierten Server auf, um Befehle zu empfangen.</p></li>
-                        <li class="ml-10"><span class="absolute -left-5 flex items-center justify-center w-10 h-10 bg-gray-100 dark:bg-gray-700 rounded-full ring-4 ring-white dark:ring-gray-800 font-bold text-[var(--accent-primary)]">7</span><strong class="font-semibold block mb-1">Actions on Objectives (Handlungen am Ziel)</strong><p class="text-sm text-[var(--text-secondary)]">Der Angreifer führt sein eigentliches Ziel aus (z.B. Datenexfiltration, Zerstörung, laterale Bewegung im Netzwerk).</p></li>
+                     <ol class="relative border-l-2 border-gray-200 space-y-6">
+                        <li class="ml-10"><span class="absolute -left-5 flex items-center justify-center w-10 h-10 bg-gray-100 rounded-full ring-4 ring-white font-bold text-[var(--accent-primary)]">1</span><strong class="font-semibold block mb-1">Reconnaissance (Aufklärung)</strong><p class="text-sm text-[var(--text-secondary)]">Angreifer sammelt passiv Informationen über das Ziel (z.B. E-Mail-Adressen, Systeminformationen).</p></li>
+                        <li class="ml-10"><span class="absolute -left-5 flex items-center justify-center w-10 h-10 bg-gray-100 rounded-full ring-4 ring-white font-bold text-[var(--accent-primary)]">2</span><strong class="font-semibold block mb-1">Weaponization (Bewaffnung)</strong><p class="text-sm text-[var(--text-secondary)]">Angreifer kombiniert einen Exploit mit einer schädlichen Nutzlast (z.B. ein Trojaner in einem PDF).</p></li>
+                        <li class="ml-10"><span class="absolute -left-5 flex items-center justify-center w-10 h-10 bg-gray-100 rounded-full ring-4 ring-white font-bold text-[var(--accent-primary)]">3</span><strong class="font-semibold block mb-1">Delivery (Zustellung)</strong><p class="text-sm text-[var(--text-secondary)]">Die "Waffe" wird zum Ziel transportiert (z.B. per Phishing-E-Mail, USB-Stick, Web-Download).</p></li>
+                        <li class="ml-10"><span class="absolute -left-5 flex items-center justify-center w-10 h-10 bg-gray-100 rounded-full ring-4 ring-white font-bold text-[var(--accent-primary)]">4</span><strong class="font-semibold block mb-1">Exploitation (Ausnutzung)</strong><p class="text-sm text-[var(--text-secondary)]">Die Schwachstelle auf dem Zielsystem wird ausgenutzt, um den Code der Nutzlast auszuführen.</p></li>
+                        <li class="ml-10"><span class="absolute -left-5 flex items-center justify-center w-10 h-10 bg-gray-100 rounded-full ring-4 ring-white font-bold text-[var(--accent-primary)]">5</span><strong class="font-semibold block mb-1">Installation</strong><p class="text-sm text-[var(--text-secondary)]">Malware wird auf dem System installiert, um dauerhaften Zugriff (Persistenz) zu gewährleisten.</p></li>
+                        <li class="ml-10"><span class="absolute -left-5 flex items-center justify-center w-10 h-10 bg-gray-100 rounded-full ring-4 ring-white font-bold text-[var(--accent-primary)]">6</span><strong class="font-semibold block mb-1">Command & Control (C2)</strong><p class="text-sm text-[var(--text-secondary)]">Die Malware baut einen Kommunikationskanal zu einem vom Angreifer kontrollierten Server auf, um Befehle zu empfangen.</p></li>
+                        <li class="ml-10"><span class="absolute -left-5 flex items-center justify-center w-10 h-10 bg-gray-100 rounded-full ring-4 ring-white font-bold text-[var(--accent-primary)]">7</span><strong class="font-semibold block mb-1">Actions on Objectives (Handlungen am Ziel)</strong><p class="text-sm text-[var(--text-secondary)]">Der Angreifer führt sein eigentliches Ziel aus (z.B. Datenexfiltration, Zerstörung, laterale Bewegung im Netzwerk).</p></li>
                     </ol>
                 </div>
             </div>
