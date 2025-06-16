@@ -10,24 +10,6 @@ const appState = {
     voices: [],
     utterance: null,
 };
-const flashcardState = {
-    storageKey: 'dbv-flashcards-progress_v3',
-    aiCardsKey: 'dbv-flashcards-ai-cards_v1',
-    customCardsKey: 'dbv-flashcards-custom-cards_v1', 
-    initialContent: {
-       "q1": { question: "Wofür sind Ortsrasterung und Intensitätsrasterung gut und wie funktionieren sie?", answer: `<div class="text-left w-full"><h3 class="font-bold text-xl mb-3">Ortsrasterung & Intensitätsrasterung</h3><p class="mb-4">Beide Prozesse sind grundlegend für die <strong class="text-[var(--accent-primary)]">Digitalisierung eines Bildes</strong>.</p><p class="mb-2"><strong>Ortsrasterung (Sampling):</strong></p><ul class="list-disc list-inside mb-4 pl-4 space-y-2"><li><strong>Funktion:</strong> Die kontinuierliche Bildebene wird in ein <strong class="text-[var(--accent-primary)]">diskretes Gitter</strong> (Pixel) zerlegt.</li><li><strong>Wichtig:</strong> Gemäß <strong class="text-[var(--accent-primary)]">Shannon'schem Abtasttheorem</strong> sollte die Abtastfrequenz mindestens doppelt so hoch sein wie die höchste Frequenz im Signal, um <strong class="text-[var(--accent-primary)]">Aliasing</strong> zu vermeiden.</li></ul><p class="mb-2"><strong>Intensitätsrasterung (Quantisierung):</strong></p><ul class="list-disc list-inside pl-4 space-y-2"><li><strong>Funktion:</strong> Der kontinuierliche Helligkeits-/Farbwert jedes Pixels wird einem von <strong class="text-[var(--accent-primary)]">endlich vielen diskreten Werten</strong> zugeordnet (z.B. 256 Stufen bei 8-Bit).</li></ul></div>` },
-       "q2": { question: "Was ist das Shannon'sche Abtasttheorem?", answer: `<div class="text-left w-full"><h3 class="font-bold text-xl mb-3">Shannon'sches Abtasttheorem</h3><p>Das Theorem besagt, dass die Abtastfrequenz ($f_s$) mindestens doppelt so hoch sein muss wie die höchste Frequenz ($f_{max}$) im Originalsignal, um das Signal ohne Informationsverlust rekonstruieren zu können. $$f_s > 2 \cdot f_{max}$$ Wird diese Bedingung nicht erfüllt, kommt es zum <strong class="text-[var(--accent-primary)]">Aliasing-Effekt</strong>, bei dem höhere Frequenzen als niedrigere Frequenzen fehlinterpretiert werden.</p></div>` }
-    },
-    allCards: [],
-    currentDeck: [],
-    currentIndex: 0,
-    activeLevel: 'all',
-    isSearchActive: false,
-    searchResults: [],
-    searchIndex: 0,
-    cardIdToDelete: null,
-    cardContent: {},
-};
 
 document.addEventListener('DOMContentLoaded', () => {
     
@@ -300,7 +282,7 @@ document.addEventListener('DOMContentLoaded', () => {
         moduleContainer.innerHTML = `
             <div class="w-full max-w-4xl mx-auto">
                 <header class="text-center mb-6">
-                    <h1 class="text-3xl sm:text-4xl font-bold text-[var(--text-primary)]">Lernkarten: Digitale Bildverarbeitung</h1>
+                    <h1 class="text-3xl sm:text-4xl font-bold text-[var(--text-primary)]">Lernkarten: Network Management</h1>
                     <p class="text-[var(--text-secondary)] mt-2">Klicke auf eine Karte, um die Antwort zu sehen. Bewerte sie danach.</p>
                 </header>
                 <div class="w-full max-w-2xl mx-auto mb-6">

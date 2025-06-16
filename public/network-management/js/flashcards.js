@@ -1,4 +1,3 @@
-
 // --- FLASHCARD LOGIC ---
 
 function initializeCards() {
@@ -29,9 +28,24 @@ function showCard() {
     speechSynthesis.cancel();
     
     let cardObject, content, cardId;
-    const sourceDeck = flashcardState.isSearchActive ? flashcardState.searchResults : flashcardState.allCards.filter(c => flashcardState.currentDeck.includes(c.id));
-    const sourceIndex = flashcardState.isSearchActive ? flashcardState.searchIndex : flashcardState.currentIndex;
-    cardObject = sourceDeck[sourceIndex];
+    
+    let displayDeck; // This will hold the array of card objects to be displayed
+    let displayIndex; // This will be the index into displayDeck
+
+    if (flashcardState.isSearchActive) {
+        displayDeck = flashcardState.searchResults; // searchResults is already an array of card objects
+        displayIndex = flashcardState.searchIndex;
+    } else {
+        // flashcardState.currentDeck contains card IDs in the correct order (e.g., shuffled).
+        // We need to map these IDs to their corresponding card objects from flashcardState.allCards.
+        displayDeck = flashcardState.currentDeck.map(id => 
+            flashcardState.allCards.find(card => card.id === id)
+        ).filter(card => card); // Filter out any undefined cards if IDs are inconsistent
+
+        displayIndex = flashcardState.currentIndex;
+    }
+    
+    cardObject = displayDeck[displayIndex]; // Get the current card object
     
     const fcContainer = $('#fc-container');
 
@@ -40,9 +54,15 @@ function showCard() {
         content = flashcardState.cardContent[cardId]; 
     } else {
          let message = 'Alle Karten für diese Sitzung beantwortet!';
-         if(flashcardState.isSearchActive) message = `Keine Ergebnisse für "${$('#fc-search-input').value}" gefunden.`;
+         // More specific message if search yielded no results or deck is empty
+         if (flashcardState.isSearchActive && displayDeck.length === 0) {
+            message = `Keine Ergebnisse für "${$('#fc-search-input').value}" gefunden.`;
+         } else if (!flashcardState.isSearchActive && displayDeck.length === 0) {
+            message = 'Keine Karten im aktuellen Stapel verfügbar.';
+         }
+         
          fcContainer.innerHTML = `<div class="w-full h-full flex items-center justify-center p-8 text-center glass-card"><h2 class="text-xl font-bold text-[var(--accent-primary)]">${message}</h2></div>`;
-         $('#fc-card-counter').textContent = '';
+         $('#fc-card-counter').textContent = ''; // Consistent with original behavior when no card is shown
          $('#fc-navigation-container').style.display = 'none';
          $('#fc-answer-buttons').style.display = 'none';
          return;
@@ -75,9 +95,9 @@ function showCard() {
             </div>
         </div>`;
     
-    $('#fc-card-counter').textContent = `Karte ${sourceIndex + 1} / ${sourceDeck.length}`;
-    $('#fc-prev-btn').disabled = sourceDeck.length <= 1;
-    $('#fc-next-btn').disabled = sourceDeck.length <= 1;
+    $('#fc-card-counter').textContent = `Karte ${displayIndex + 1} / ${displayDeck.length}`;
+    $('#fc-prev-btn').disabled = displayDeck.length <= 1;
+    $('#fc-next-btn').disabled = displayDeck.length <= 1;
 
 
     $('#flashcard').addEventListener('click', (e) => {
@@ -171,6 +191,7 @@ function updateStats() {
             ${[1, 2, 3, 4, 5].map(level => `<div data-level="${level}" class="stat-box p-2 px-3 text-sm">Stufe ${level}: <span class="font-bold">${levelCounts[level] || 0}</span></div>`).join('')}
             ${customCardsCount > 0 ? `<div data-level="custom" class="stat-box p-2 px-3 text-sm">Eigene (${customCardsCount})</div>` : ''}
             ${aiCardsCount > 0 ? `<div data-level="ai" class="stat-box p-2 px-3 text-sm">Generiert (${aiCardsCount})</div>` : ''}
+
             <button id="fc-shuffle-btn" class="p-2 px-3 text-sm rounded-md bg-[var(--accent-text)] text-[var(--accent-primary)] font-semibold">Mischen</button>
             <button id="fc-reset-btn" class="p-2 px-3 text-sm rounded-md bg-[var(--accent-text)] text-[var(--accent-primary)] font-semibold">Zurücksetzen</button>
         </div>`;

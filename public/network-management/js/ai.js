@@ -1,38 +1,157 @@
-
 // --- AI & Speech functions ---
 window.speak = async function(event, cardId, isFront) {
     event?.stopPropagation();
-    if (appState.currentAudio?.played && !appState.currentAudio.paused) { appState.currentAudio.pause(); return; }
-    speechSynthesis.cancel();
-    
-    if (!cardId) return;
-    
+
+    // --- Try to PAUSE/STOP/RESUME existing speech ---
+
+    // Check if this is the same audio that's currently playing/paused
+    const isSameAudio = (appState.currentAudio && appState.currentAudio.cardId === cardId && appState.currentAudio.isFront === isFront) ||
+                        (appState.utterance && appState.utterance.cardId === cardId && appState.utterance.isFront === isFront);
+
+    // If we have Google TTS audio playing for this card
+    if (appState.currentAudio && appState.currentAudio.cardId === cardId && appState.currentAudio.isFront === isFront) {
+        if (!appState.currentAudio.paused) { // Currently Playing
+            appState.currentAudio.pause(); // Action: Pause
+            setReadButtonState(false);
+            return;
+        } else { // Currently Paused, resume or replay playback
+            // If the audio has finished playing, reset its time to the beginning to allow replay.
+            if (appState.currentAudio.ended) {
+                appState.currentAudio.currentTime = 0;
+            }
+            appState.currentAudio.play().then(() => {
+                setReadButtonState(true);
+            }).catch(e => {
+                console.error("Audio resume/replay failed:", e);
+                setReadButtonState(false);
+                appState.currentAudio = null; // Fallback to new instance if resume fails
+            });
+            return; // Skip creating a new instance
+        }
+    }
+
+    // If we have Browser Speech Synthesis for this card
+    else if (appState.utterance && appState.utterance.cardId === cardId && appState.utterance.isFront === isFront) {
+        if (speechSynthesis.speaking && !speechSynthesis.paused) { // Currently Speaking
+            speechSynthesis.cancel();    // Action: Cancel (to mimic interruption)
+            setReadButtonState(false); // Immediate UI update
+            return;
+        }
+        if (speechSynthesis.paused) { // Currently Paused, resume speech
+            speechSynthesis.resume();
+            setReadButtonState(true);
+            return;
+        }
+    }
+
+    // If we're playing different audio, stop it first
+    else if (appState.currentAudio || speechSynthesis.speaking || speechSynthesis.paused) {
+        if (appState.currentAudio) {
+            appState.currentAudio.pause();
+            appState.currentAudio = null;
+        }
+        speechSynthesis.cancel();
+        appState.utterance = null;
+        setReadButtonState(false); // Reset any active read buttons
+    }
+
+
+    // --- Now proceed with new audio creation ---
+
+    if (!cardId) {
+        setReadButtonState(false);
+        return;
+    }
+
     const content = flashcardState.cardContent[cardId];
+    if (!content) {
+        console.error("Content not found for cardId:", cardId);
+        setReadButtonState(false);
+        return;
+    }
+
     const textToSpeak = (isFront ? content.question : content.answer).replace(/<[^>]*>/g, ' ').replace(/\$\$.*?\$\$/g, 'Formel').replace(/\$.*?\$/g, 'Formel');
-    
-    setReadButtonState(true);
-    
+
+    // Optimistic UI update for new speech
+    setReadButtonState(true); 
+    console.log("Starting new audio for", cardId, isFront ? "front" : "back");
+
     if (appState.googleApiKey) {
         try {
             const audioSrc = await callGoogleTTS(textToSpeak);
             if (audioSrc) {
                 appState.currentAudio = new Audio(audioSrc);
-                appState.currentAudio.play().catch(e => console.error("Audio play failed:", e));
-                appState.currentAudio.onended = () => setReadButtonState(false);
+                appState.currentAudio.cardId = cardId; // Tag audio with card info
+                appState.currentAudio.isFront = isFront;
+
+                appState.currentAudio.onplay = () => setReadButtonState(true);
                 appState.currentAudio.onpause = () => setReadButtonState(false);
+
+                // FIX: When audio ends, just update the button state.
+                // Do NOT nullify the appState.currentAudio object here.
+                // This allows the logic at the top of the function to check `currentAudio.ended`
+                // and reset the audio for replay. The object is cleaned up when navigating to another card.
+                appState.currentAudio.onended = () => {
+                    setReadButtonState(false);
+                };
+
+                appState.currentAudio.onerror = (e) => {
+                    console.error("Audio playback error:", e);
+                    setReadButtonState(false);
+                    appState.currentAudio = null; 
+                    // Fallback to browser speech if Google audio fails during playback
+                    speakWithBrowserTTS(textToSpeak, cardId, isFront);
+                };
+
+                appState.currentAudio.play().catch(e => {
+                    console.error("Audio play initiation failed:", e);
+                    setReadButtonState(false);
+                    appState.currentAudio = null; 
+                    speakWithBrowserTTS(textToSpeak, cardId, isFront); // Fallback
+                });
                 return;
             }
-        } catch(e) { /* Fallback to browser voice on error */ }
+        } catch(e) {
+            console.warn("Google TTS API call failed, falling back to browser voice:", e);
+            // Fallback will be handled by calling speakWithBrowserTTS below
+        }
     }
-    
+
+    // Fallback or primary if no API key / Google TTS failed
+    speakWithBrowserTTS(textToSpeak, cardId, isFront);
+};
+
+// Helper function for browser TTS
+function speakWithBrowserTTS(textToSpeak, cardId, isFront) {
+    // Ensure any previous browser speech is fully stopped before starting a new one.
+    speechSynthesis.cancel();
+
     appState.utterance = new SpeechSynthesisUtterance(textToSpeak);
+    appState.utterance.cardId = cardId; // Tag utterance with card info
+    appState.utterance.isFront = isFront;
+
     appState.utterance.voice = appState.voices.find(v => v.lang.startsWith('de') && v.default) || appState.voices.find(v => v.lang.startsWith('de'));
     appState.utterance.pitch = appState.settings.pitch;
     appState.utterance.rate = appState.settings.rate;
-    appState.utterance.onend = () => setReadButtonState(false);
-    appState.utterance.onerror = () => setReadButtonState(false);
+
+    // These handlers are for the utterance object
+    appState.utterance.onstart = () => setReadButtonState(true);
+    // Note: onpause and onresume on the utterance object are not universally supported or reliable.
+    // We manage button state for pause/resume explicitly in the main speak function for browser synth.
+    appState.utterance.onend = () => {
+        setReadButtonState(false);
+        appState.utterance = null; // Clear after ending for fresh start next time
+    };
+    appState.utterance.onerror = (e) => {
+        console.error("Browser speech error:", e);
+        setReadButtonState(false);
+        appState.utterance = null;
+    };
+    
+    // This call might implicitly setReadButtonState(true) via onstart
     speechSynthesis.speak(appState.utterance);
 }
+
 
 function setReadButtonState(isReading) {
     const icons = document.querySelectorAll('.read-aloud-btn .read-icon');
