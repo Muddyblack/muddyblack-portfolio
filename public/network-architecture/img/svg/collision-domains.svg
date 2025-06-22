@@ -1,0 +1,71 @@
+  <svg viewBox="0 0 1000 600" xmlns="http://www.w3.org/2000/svg" class="w-full h-auto">
+                                <defs>
+                                    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+                                        <feGaussianBlur stdDeviation="15" result="coloredBlur"/>
+                                        <feMerge>
+                                            <feMergeNode in="coloredBlur"/>
+                                            <feMergeNode in="SourceGraphic"/>
+                                        </feMerge>
+                                    </filter>
+                                    <g id="laptop">
+                                        <rect x="0" y="0" width="80" height="50" rx="5" ry="5" fill="#cbd5e1" class="dark:fill-gray-600"/>
+                                        <rect x="5" y="5" width="70" height="40" rx="3" ry="3" fill="#e2e8f0" class="dark:fill-gray-400"/>
+                                        <rect x="-10" y="55" width="100" height="5" rx="2" ry="2" fill="#94a3b8" class="dark:fill-gray-500"/>
+                                    </g>
+                                    <g id="hub">
+                                        <rect x="0" y="0" width="120" height="40" rx="8" fill="#4b5563" class="dark:fill-gray-700"/>
+                                        <path d="M 10 20 L 30 10 L 30 30 Z" fill="#9ca3af"/>
+                                        <path d="M 110 20 L 90 10 L 90 30 Z" fill="#9ca3af"/>
+                                        <path d="M 40 20 H 80" stroke="#9ca3af" stroke-width="3"/>
+                                    </g>
+                                    <g id="switch">
+                                        <rect x="0" y="0" width="120" height="40" rx="8" fill="#4b5563" class="dark:fill-gray-700"/>
+                                        <path d="M 15 15 L 25 10 L 25 20 Z" fill="#7dd3fc"/>
+                                        <path d="M 15 25 L 25 30 L 25 20 Z" fill="#7dd3fc"/>
+                                        <path d="M 40 12.5 H 80" stroke="#7dd3fc" stroke-width="2.5"/>
+                                        <path d="M 40 27.5 H 80" stroke="#7dd3fc" stroke-width="2.5"/>
+                                        <path d="M 105 15 L 95 10 L 95 20 Z" fill="#7dd3fc"/>
+                                        <path d="M 105 25 L 95 30 L 95 20 Z" fill="#7dd3fc"/>
+                                    </g>
+                                    <g id="router">
+                                        <circle cx="25" cy="25" r="25" fill="#4b5563" class="dark:fill-gray-700"/>
+                                        <path d="M 15 15 L 25 5 L 35 15 Z" fill="#a78bfa"/>
+                                        <path d="M 15 35 L 25 45 L 35 35 Z" fill="#a78bfa"/>
+                                        <path d="M 5 25 L 15 15 L 15 35 Z" fill="#a78bfa"/>
+                                        <path d="M 45 25 L 35 15 L 35 35 Z" fill="#a78bfa"/>
+                                    </g>
+                                </defs>
+                                <g>
+                                    <ellipse cx="250" cy="300" rx="220" ry="160" fill="#3b82f6" fill-opacity="0.1" stroke="#3b82f6" stroke-width="3" stroke-dasharray="10 5"/>
+                                    <ellipse cx="610" cy="130" rx="70" ry="100" fill="#22c55e" fill-opacity="0.1" stroke="#22c55e" stroke-width="3" stroke-dasharray="10 5"/>
+                                    <ellipse cx="610" cy="470" rx="70" ry="100" fill="#22c55e" fill-opacity="0.1" stroke="#22c55e" stroke-width="3" stroke-dasharray="10 5"/>
+                                    <ellipse cx="762.5" cy="300" rx="100" ry="50" fill="#f59e0b" fill-opacity="0.1" stroke="#f59e0b" stroke-width="3" stroke-dasharray="10 5"/>
+                                    <ellipse cx="880" cy="160" rx="70" ry="100" fill="#14b8a6" fill-opacity="0.1" stroke="#14b8a6" stroke-width="3" stroke-dasharray="10 5"/>
+                                    <ellipse cx="880" cy="440" rx="70" ry="100" fill="#14b8a6" fill-opacity="0.1" stroke="#14b8a6" stroke-width="3" stroke-dasharray="10 5"/>
+                                </g>
+                                <g stroke="#94a3b8" stroke-width="2" class="dark:stroke-gray-500">
+                                    <line x1="250" y1="160" x2="250" y2="280" />
+                                    <line x1="100" y1="300" x2="210" y2="300" />
+                                    <line x1="290" y1="300" x2="450" y2="300" />
+                                    <line x1="250" y1="320" x2="250" y2="440" />
+                                    <line x1="450" y1="300" x2="550" y2="300" />
+                                    <line x1="610" y1="200" x2="610" y2="280" />
+                                    <line x1="610" y1="320" x2="610" y2="400" />
+                                    <line x1="670" y1="300" x2="855" y2="300" />
+                                    <line x1="880" y1="230" x2="880" y2="275" />
+                                    <line x1="880" y1="325" x2="880" y2="370" />
+                                </g>
+                                <use href="#laptop" x="210" y="100"/>
+                                <use href="#laptop" x="60" y="275"/>
+                                <use href="#hub" x="190" y="280"/>
+                                <use href="#laptop" x="210" y="450"/>
+                                <use href="#switch" x="550" y="280"/>
+                                <use href="#laptop" x="570" y="100"/>
+                                <use href="#laptop" x="570" y="450"/>
+                                <use href="#router" x="855" y="275"/>
+                                <use href="#laptop" x="840" y="80"/>
+                                <use href="#laptop" x="840" y="380"/>
+                                <text x="250" y="345" class="label" text-anchor="middle">Hub</text>
+                                <text x="610" y="345" class="label" text-anchor="middle">Switch</text>
+                                <text x="880" y="345" class="label" text-anchor="middle">Router</text>
+</svg>

@@ -1,0 +1,181 @@
+<svg width="800" height="500" viewBox="0 0 800 500" xmlns="http://www.w3.org/2000/svg" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'">
+
+  <!-- 
+    Modern State Machine Diagram
+    Description: A vector-based SVG representation of a network authentication and association state machine.
+    This SVG uses CSS media queries to adapt its colors for both light and dark themes.
+    Author: Gemini
+  -->
+
+  <defs>
+    <!-- Arrowhead marker definition -->
+    <marker id="arrowhead" class="arrowhead-gray" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto" markerUnits="strokeWidth">
+      <polygon points="0 0, 10 3.5, 0 7" />
+    </marker>
+    <!-- Arrowhead for blue transitions -->
+    <marker id="arrowhead-blue" class="arrowhead-blue" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto" markerUnits="strokeWidth">
+      <polygon points="0 0, 10 3.5, 0 7" />
+    </marker>
+    <!-- Arrowhead for orange transitions -->
+    <marker id="arrowhead-orange" class="arrowhead-orange" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto" markerUnits="strokeWidth">
+      <polygon points="0 0, 10 3.5, 0 7" />
+    </marker>
+  </defs>
+
+  <!-- Styles -->
+  <style>
+    /* Default styles for Light Mode */
+    .state-circle {
+      fill: #f8fafc; /* Light background for readability */
+      stroke: #cbd5e1; /* Lighter stroke for light mode */
+      stroke-width: 2;
+      transition: all 0.3s ease;
+    }
+    .state-circle:hover {
+      transform: scale(1.02);
+      stroke-width: 3;
+    }
+    .state-title {
+      font-size: 16px;
+      font-weight: 600;
+      fill: #1e293b;
+      text-anchor: middle;
+    }
+    .state-desc-auth {
+      font-size: 14px;
+      fill: #3b82f6; /* Blue */
+      text-anchor: middle;
+    }
+    .state-desc-assoc {
+      font-size: 14px;
+      fill: #f97316; /* Orange */
+      text-anchor: middle;
+    }
+    .transition-line {
+      fill: none;
+      stroke-width: 2;
+    }
+    .transition-blue { stroke: #3b82f6; }
+    .transition-orange { stroke: #f97316; }
+    .transition-gray { stroke: #4a5568; }
+    .arrowhead-blue { fill: #3b82f6; }
+    .arrowhead-orange { fill: #f97316; }
+    .arrowhead-gray { fill: #4a5568; }
+    .transition-label {
+      font-size: 14px;
+      text-anchor: middle;
+    }
+    .label-blue { fill: #3b82f6; }
+    .label-orange { fill: #f97316; }
+    .trigger-label {
+      font-size: 12px;
+      fill: #475569;
+      text-anchor: middle;
+    }
+
+    /* Styles for Dark Mode */
+    @media (prefers-color-scheme: dark) {
+      .state-circle {
+        fill: #1e293b; /* Dark background for readability */
+        stroke: #475569; /* Adjusted stroke for dark mode */
+      }
+      .state-title {
+        fill: #f1f5f9;
+      }
+      .state-desc-auth {
+        fill: #60a5fa;
+      }
+      .state-desc-assoc {
+        fill: #fb923c;
+      }
+      .transition-blue { stroke: #60a5fa; }
+      .transition-orange { stroke: #fb923c; }
+      .transition-gray { stroke: #94a3b8; }
+      .arrowhead-blue { fill: #60a5fa; }
+      .arrowhead-orange { fill: #fb923c; }
+      .arrowhead-gray { fill: #94a3b8; }
+      .label-blue { fill: #60a5fa; }
+      .label-orange { fill: #fb923c; }
+      .trigger-label {
+        fill: #94a3b8;
+      }
+    }
+  </style>
+
+  <!-- State 1: Unauthenticated, Unassociated -->
+  <g id="state1" transform="translate(150, 200)">
+    <ellipse class="state-circle" cx="0" cy="0" rx="80" ry="45"/>
+    <text class="state-title" x="0" y="-8">State 1</text>
+    <text class="state-desc-auth" x="0" y="12">unauthenticated</text>
+    <text class="state-desc-assoc" x="0" y="28">unassociated</text>
+  </g>
+  
+  <!-- State 2: Authenticated, Unassociated -->
+  <g id="state2" transform="translate(400, 200)">
+    <ellipse class="state-circle" cx="0" cy="0" rx="80" ry="45"/>
+    <text class="state-title" x="0" y="-8">State 2</text>
+    <text class="state-desc-auth" x="0" y="12">authenticated</text>
+    <text class="state-desc-assoc" x="0" y="28">unassociated</text>
+  </g>
+
+  <!-- State 3: Authenticated, Associated -->
+  <g id="state3" transform="translate(650, 200)">
+    <ellipse class="state-circle" cx="0" cy="0" rx="80" ry="45"/>
+    <text class="state-title" x="0" y="-8">State 3</text>
+    <text class="state-desc-auth" x="0" y="12">authenticated</text>
+    <text class="state-desc-assoc" x="0" y="28">associated</text>
+  </g>
+
+  <!-- Transitions -->
+  
+  <!-- State 1 -> State 2 -->
+  <path id="s1-s2" class="transition-line transition-blue" d="M 230 180 C 280 140, 320 140, 320 180" marker-end="url(#arrowhead-blue)"/>
+  <text class="transition-label label-blue" x="275" y="135">
+    <tspan x="275" dy="-5">auth</tspan>
+    <tspan x="275" dy="15">successful</tspan>
+  </text>
+  
+  <!-- State 2 -> State 1 -->
+  <path id="s2-s1" class="transition-line transition-blue" d="M 320 220 C 270 260, 230 260, 230 220" marker-end="url(#arrowhead-blue)"/>
+  <text class="transition-label label-blue" x="275" y="265">
+    <tspan x="275" dy="-5">de-auth</tspan>
+    <tspan x="275" dy="15">notification</tspan>
+  </text>
+  
+  <!-- State 2 -> State 3 -->
+  <path id="s2-s3" class="transition-line transition-orange" d="M 480 180 C 530 140, 570 140, 570 180" marker-end="url(#arrowhead-orange)"/>
+  <text class="transition-label label-orange" x="525" y="135">
+    <tspan x="525" dy="-5">association</tspan>
+    <tspan x="525" dy="15">successful</tspan>
+  </text>
+
+  <!-- State 3 -> State 2 -->
+  <path id="s3-s2" class="transition-line transition-orange" d="M 570 220 C 520 260, 480 260, 480 220" marker-end="url(#arrowhead-orange)"/>
+  <text class="transition-label label-orange" x="525" y="265">
+    <tspan x="525" dy="-5">de-association</tspan>
+    <tspan x="525" dy="15">notification</tspan>
+  </text>
+  
+  <!-- Self-loops -->
+  
+  <!-- State 1 Loop -->
+  <path id="s1-loop" class="transition-line transition-gray" d="M 120 235 A 40 40 0 1 1 120 165" marker-end="url(#arrowhead)"/>
+  <text class="trigger-label" x="80" y="125">Class 1 frames</text>
+  <text class="trigger-label" x="80" y="138">-> auth only</text>
+  
+  <!-- State 2 Loop -->
+  <path id="s2-loop" class="transition-line transition-gray" d="M 380 245 A 40 40 0 1 0 420 245" marker-end="url(#arrowhead)"/>
+  <text class="trigger-label" x="400" y="275">
+      <tspan x="400" dy="0">Class 1 frames</tspan>
+      <tspan x="400" dy="12">Class 2 frames</tspan>
+  </text>
+
+  <!-- State 3 Loop -->
+  <path id="s3-loop" class="transition-line transition-gray" d="M 630 245 A 40 40 0 1 0 670 245" marker-end="url(#arrowhead)"/>
+   <text class="trigger-label" x="650" y="275">
+      <tspan x="650" dy="0">Class 1 frames</tspan>
+      <tspan x="650" dy="12">Class 2 frames</tspan>
+      <tspan x="650" dy="12">Class 3 frames</tspan>
+  </text>
+
+</svg>

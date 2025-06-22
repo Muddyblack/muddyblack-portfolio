@@ -1,0 +1,136 @@
+<svg viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <!-- Gradients for modern look -->
+    <linearGradient id="blueGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#667eea;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#764ba2;stop-opacity:1" />
+    </linearGradient>
+    
+    <linearGradient id="greenGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#48bb78;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#38a169;stop-opacity:1" />
+    </linearGradient>
+    
+    <linearGradient id="purpleGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#9f7aea;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#805ad5;stop-opacity:1" />
+    </linearGradient>
+    
+    <!-- Drop shadow filter -->
+    <filter id="dropshadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="2" dy="4" stdDeviation="3" flood-color="#000000" flood-opacity="0.2"/>
+    </filter>
+    
+    <!-- Arrow marker -->
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" 
+            refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#4a5568" />
+    </marker>
+  </defs>
+  
+  <!-- Background removed for transparency -->
+  
+  <!-- IV Box -->
+  <rect x="50" y="50" width="80" height="50" rx="8" 
+        fill="url(#blueGradient)" filter="url(#dropshadow)"/>
+  <text x="90" y="80" text-anchor="middle" fill="white" 
+        font-family="Inter, sans-serif" font-size="16" font-weight="600">IV</text>
+  
+  <!-- Pre-shared key Box -->
+  <rect x="200" y="50" width="140" height="50" rx="8" 
+        fill="url(#blueGradient)" filter="url(#dropshadow)"/>
+  <text x="270" y="80" text-anchor="middle" fill="white" 
+        font-family="Inter, sans-serif" font-size="16" font-weight="600">Pre-shared key</text>
+  
+  <!-- Data Box -->
+  <rect x="420" y="50" width="100" height="50" rx="8" 
+        fill="url(#blueGradient)" filter="url(#dropshadow)"/>
+  <text x="470" y="80" text-anchor="middle" fill="white" 
+        font-family="Inter, sans-serif" font-size="16" font-weight="600">Data</text>
+  
+  <!-- CRC32 Circle -->
+  <circle cx="650" cy="75" r="35" fill="url(#greenGradient)" filter="url(#dropshadow)"/>
+  <text x="650" y="81" text-anchor="middle" fill="white" 
+        font-family="Inter, sans-serif" font-size="14" font-weight="600">CRC32</text>
+  
+  <!-- Data + Checksum Box -->
+  <rect x="350" y="160" width="300" height="50" rx="8" 
+        fill="#e2e8f0" stroke="#cbd5e0" stroke-width="2" filter="url(#dropshadow)"/>
+  <text x="500" y="190" text-anchor="middle" fill="#2d3748" 
+        font-family="Inter, sans-serif" font-size="16" font-weight="500">Data + Checksum</text>
+  
+  <!-- II Circle (outside RC4) -->
+  <circle cx="270" cy="320" r="30" fill="url(#purpleGradient)" filter="url(#dropshadow)"/>
+  <text x="270" y="327" text-anchor="middle" fill="white" 
+        font-family="Inter, sans-serif" font-size="16" font-weight="600">II</text>
+  
+  <!-- RC4 Dashed Box -->
+  <rect x="350" y="260" width="280" height="120" rx="12" 
+        fill="none" stroke="#9f7aea" stroke-width="2" stroke-dasharray="8,4" opacity="0.8"/>
+  <text x="370" y="285" fill="#805ad5" font-family="Inter, sans-serif" 
+        font-size="14" font-weight="600">RC4</text>
+  
+  <!-- RC4 Generator Box -->
+  <rect x="420" y="300" width="120" height="40" rx="6" 
+        fill="#4a5568" filter="url(#dropshadow)"/>
+  <text x="480" y="325" text-anchor="middle" fill="white" 
+        font-family="Inter, sans-serif" font-size="14" font-weight="500">RC4 Generator</text>
+  
+  <!-- XOR Circle -->
+  <circle cx="580" cy="320" r="30" fill="url(#greenGradient)" filter="url(#dropshadow)"/>
+  <text x="580" y="327" text-anchor="middle" fill="white" 
+        font-family="Inter, sans-serif" font-size="16" font-weight="600">XOR</text>
+  
+  <!-- Final IV Box -->
+  <rect x="200" y="480" width="80" height="50" rx="8" 
+        fill="url(#blueGradient)" filter="url(#dropshadow)" stroke="white" stroke-width="1"/>
+  <text x="240" y="510" text-anchor="middle" fill="white" 
+        font-family="Inter, sans-serif" font-size="16" font-weight="600">IV</text>
+  
+  <!-- Final Output Box -->
+  <rect x="280" y="480" width="320" height="50" rx="8" 
+        fill="url(#blueGradient)" filter="url(#dropshadow)" stroke="white" stroke-width="1"/>
+  <text x="440" y="510" text-anchor="middle" fill="white" 
+        font-family="Inter, sans-serif" font-size="16" font-weight="600">Data + Checksum (cypher)</text>
+  
+  <!-- Arrows -->
+  <!-- IV directly to II -->
+  <path d="M 90 100 L 90 140 L 270 140 L 270 290" 
+        stroke="#4a5568" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
+  
+  <!-- Pre-shared key to II -->
+  <path d="M 270 100 L 270 290" 
+        stroke="#4a5568" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
+  
+  <!-- Data to CRC32 -->
+  <path d="M 520 75 L 615 75" 
+        stroke="#4a5568" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
+  
+  <!-- Data to Data+Checksum -->
+  <path d="M 470 100 L 470 160" 
+        stroke="#4a5568" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
+  
+  <!-- CRC32 to Data+Checksum -->
+  <path d="M 650 110 L 650 160" 
+        stroke="#4a5568" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
+  
+  <!-- Data+Checksum to XOR -->
+  <path d="M 500 210 L 500 240 L 580 240 L 580 290" 
+        stroke="#4a5568" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
+  
+  <!-- II to RC4 Generator -->
+  <path d="M 300 320 L 420 320" 
+        stroke="#4a5568" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
+  
+  <!-- RC4 Generator to XOR -->
+  <path d="M 540 320 L 550 320" 
+        stroke="#4a5568" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
+  
+  <!-- XOR to Final Data+Checksum Output -->
+  <path d="M 580 350 L 580 430 L 440 430 L 440 480" 
+        stroke="#4a5568" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
+  
+  <!-- IV direct to bottom IV -->
+  <path d="M 90 100 L 30 100 L 30 505 L 200 505" 
+        stroke="#4a5568" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
+</svg>

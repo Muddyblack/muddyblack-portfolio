@@ -1,0 +1,220 @@
+/* =============================================== */
+/* Print Module Styles (Compact Cheatsheet Version)*/
+/* =============================================== */
+
+/* --- General On-Screen Display --- */
+.print-container {
+    max-width: none;
+    font-family: 'Arial', sans-serif;
+    background-color: #e0e0e0; /* Lighter, more neutral background */
+    padding: 1rem 0;
+}
+
+.no-print {
+    display: block; /* Visible on screen */
+}
+
+.print-page {
+    background: white !important;
+    color: black !important;
+    padding: 8mm;
+    margin: 0 auto 1rem;
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+    width: 210mm;
+    min-height: 297mm;
+    position: relative;
+    box-sizing: border-box;
+}
+
+/* --- Page Structure & Header --- */
+.print-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #333;
+    padding-bottom: 3px;
+    margin-bottom: 8px;
+}
+
+.print-header h1 {
+    font-size: 11px !important;
+    font-weight: bold;
+    margin: 0 !important;
+    color: black !important;
+}
+
+.page-number {
+    font-size: 9px;
+    color: #666 !important;
+}
+
+/* --- Main Content Grid --- */
+.content-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 4px;
+    line-height: 1.1;
+    align-items: start; /* MODIFIED: Prevents grid items from stretching vertically */
+}
+
+/* --- Topic Block (The Core Element) --- */
+.topic-block {
+    background: #f8f9fa !important;
+    border: 1px solid #dee2e6 !important;
+    border-radius: 3px;
+    padding: 4px;
+    break-inside: avoid;
+    font-size: 6.5pt !important; /* BASE FONT SIZE */
+    line-height: 1.15 !important;
+}
+
+/* --- Universal Resets within a Topic Block --- */
+.topic-block *, .topic-block p, .topic-block div, .topic-block span, .topic-block li {
+    font-size: inherit !important;
+    line-height: inherit !important;
+    color: black !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    background: transparent !important;
+    border: none !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+}
+
+/* --- Typography within Topic Block --- */
+.topic-block h2 {
+    font-size: 8pt !important;
+    font-weight: bold !important;
+    margin: 0 0 3px 0 !important;
+    padding-bottom: 2px !important;
+    color: #1e40af !important; /* Keep blue titles */
+    border-bottom: 0.5px solid #a0aec0 !important;
+}
+
+.topic-block h3, .topic-block h4, .topic-block h5 {
+    font-size: 7pt !important;
+    font-weight: bold !important;
+    color: #374151 !important;
+    margin: 3px 0 1px 0 !important;
+}
+
+.topic-block p {
+    margin: 2px 0 !important; /* Give paragraphs a tiny bit of breathing room */
+}
+
+.topic-block strong {
+    font-weight: bold !important;
+    color: black !important;
+}
+
+.topic-block ul, .topic-block ol {
+    margin: 2px 0 2px 8px !important; /* Indent lists */
+    padding-left: 0 !important;
+    list-style-position: outside;
+}
+
+.topic-block li {
+    margin-bottom: 1px !important;
+}
+
+/* --- MODIFIED: Specialized Layouts (Compact Version) --- */
+.mini-grid, .mini-grid-3, .comparison-grid, .cti-grid,
+.topic-block .grid-cols-1, .topic-block .grid-cols-2, .topic-block .grid-cols-3, .topic-block .grid-cols-6,
+.topic-block .md\:grid-cols-2, .topic-block .md\:grid-cols-3, .topic-block .lg\:grid-cols-6 {
+    display: grid !important;
+    gap: 2px !important;
+    margin-top: 2px !important;
+}
+
+.topic-block .grid-cols-1 { grid-template-columns: 1fr !important; }
+.topic-block .grid-cols-2, .topic-block .md\:grid-cols-2 { grid-template-columns: 1fr 1fr !important; }
+/* FIX: Force grids with 3 or more columns into a 3-column layout to prevent overflow */
+.topic-block .grid-cols-3, .topic-block .md\:grid-cols-3, 
+.topic-block .grid-cols-6, .topic-block .lg\:grid-cols-6 { 
+    grid-template-columns: 1fr 1fr 1fr !important; 
+}
+
+
+.kerberos-flow, .kill-chain {
+    display: flex;
+    flex-direction: column;
+    gap: 1px !important;
+}
+.flow-step, .chain-step {
+    padding: 1px 3px !important;
+    border-radius: 2px;
+    border-left: 2px solid #2196f3 !important;
+    background: #e3f2fd !important;
+}
+
+/* --- Colored Helper Boxes --- */
+.unsafe-box, .safe-box {
+    padding: 3px !important;
+    border-radius: 2px !important;
+    margin-top: 2px !important;
+}
+.unsafe-box { background: #ffebee !important; border: 1px solid #f44336 !important; }
+.safe-box { background: #e8f5e9 !important; border: 1px solid #4caf50 !important; }
+.topic-block .bg-yellow-100 { background: #fffde7 !important; }
+.topic-block .bg-red-100 { background: #ffebee !important; }
+.topic-block .border-yellow-500 { border-left: 2px solid #f9a825 !important; }
+.topic-block .border-red-500 { border-left: 2px solid #d32f2f !important; }
+
+
+.quick-ref {
+    grid-column: 1 / -1;
+}
+
+/* =============================================== */
+/* Print Media Queries                             */
+/* =============================================== */
+@media print {
+    * {
+        -webkit-print-color-adjust: exact !important;
+        color-adjust: exact !important;
+    }
+
+    body {
+        background: white !important;
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+
+    .no-print, #sidebar, header, .sidebar, #sidebar-overlay {
+        display: none !important;
+    }
+
+    .print-page {
+        box-shadow: none !important;
+        margin: 0 !important;
+        padding: 0 !important; /* Let @page handle margins */
+        page-break-after: always;
+        width: 100% !important;
+        min-height: 0 !important;
+        height: auto !important;
+        border: none !important;
+        background: transparent !important;
+    }
+    
+    .print-page:last-of-type {
+        page-break-after: avoid; /* Prevent extra blank page at the end */
+    }
+
+    .page-2 {
+        page-break-before: always;
+    }
+
+    .topic-block {
+        page-break-inside: avoid;
+    }
+    
+    .print-container {
+        background-color: transparent !important;
+        padding: 0;
+    }
+
+    @page {
+        size: A4;
+        margin: 7mm;
+    }
+}

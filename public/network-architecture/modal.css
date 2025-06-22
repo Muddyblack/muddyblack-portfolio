@@ -1,0 +1,57 @@
+
+/* =============================================== */
+/* MODAL STYLES                                    */
+/* =============================================== */
+
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.3);
+    -webkit-backdrop-filter: blur(8px);
+    backdrop-filter: blur(8px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 50;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.modal-overlay.visible { opacity: 1; visibility: visible; }
+
+.modal-content {
+    background: var(--card-bg);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid var(--card-border);
+    padding: 2rem;
+    border-radius: 1rem;
+    width: 90%;
+    max-width: 500px;
+    transform: scale(0.95);
+    transition: transform 0.3s ease;
+    position: relative;
+}
+
+.modal-overlay.visible .modal-content { transform: scale(1); }
+
+.modal-close-button-top {
+    position: absolute;
+    top: 0.75rem;
+    right: 0.75rem;
+    z-index: 10;
+    padding: 0.5rem;
+    background-color: rgba(0, 0, 0, 0.1);
+    border-radius: 9999px;
+    transition: all 0.2s;
+    cursor: pointer;
+}
+
+.modal-close-button-top:hover {
+    background-color: rgba(0, 0, 0, 0.2);
+    transform: rotate(90deg);
+}

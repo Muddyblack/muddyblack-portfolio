@@ -36,6 +36,17 @@ const studyMaterials: StudyMaterial[] = [
     buttons: [
       { label: "Access Materials", url: "/network-management/index.html", variant: "primary" },
     ]
+  },
+  {
+    title: "Network Architecture",
+    description: "Study materials covering fundamental network architecture concepts, including OSI model, TCP/IP stack, network topologies, and design principles. Includes diagrams, comparisons, and practical examples.",
+    subject: "Networking",
+    tags: ["Network Design", "OSI Model", "TCP/IP", "Topologies", "Infrastructure"],
+    url: "/network-architecture/index.html",
+    type: "Documentation",
+    buttons: [
+      { label: "Access Materials", url: "/network-architecture/index.html", variant: "primary" },
+    ]
   }
 ];
 

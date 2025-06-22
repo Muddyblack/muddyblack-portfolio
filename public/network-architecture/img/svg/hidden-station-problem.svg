@@ -1,0 +1,166 @@
+<svg width="100%" viewBox="0 0 1300 750" xmlns="http://www.w3.org/2000/svg">
+    <!-- 
+        Hidden Station Problem / RTS/CTS Flowchart
+        A modern SVG implementation based on the user-provided image,
+        styled in the manner of the CSMA/DFC flowchart examples.
+        - Customizable styles are in the <style> tag.
+        - Layout is organized for clarity.
+        - Uses smooth paths and a clean, modern aesthetic.
+    -->
+    <defs>
+        <!-- Arrowhead Marker Definition -->
+        <marker id="arrowhead-hs" markerWidth="10" markerHeight="7" refX="0" refY="3.5" orient="auto" fill="var(--line-color)">
+            <polygon points="0 0, 10 3.5, 0 7" />
+        </marker>
+
+        <!-- Filter for a subtle drop shadow -->
+        <filter id="dropshadow-hs" height="130%">
+            <feGaussianBlur in="SourceAlpha" stdDeviation="3"/>
+            <feOffset dx="2" dy="2" result="offsetblur"/>
+            <feComponentTransfer>
+                <feFuncA type="linear" slope="0.5"/>
+            </feComponentTransfer>
+            <feMerge> 
+                <feMergeNode/>
+                <feMergeNode in="SourceGraphic"/> 
+            </feMerge>
+        </filter>
+    </defs>
+
+    <!-- CSS Styles for the Flowchart -->
+    <style>
+        svg {
+            --shape-stroke: var(--card-border);
+            --text-color: var(--text-primary);
+            --line-color: var(--text-secondary);
+            --process-bg: var(--bg-color);
+            --decision-bg: var(--card-bg);
+            --terminal-bg: #4338ca;
+            --success-bg: #16a34a;
+            --warning-bg: #f97316;
+        }
+
+        .flow-shape {
+            stroke-width: 1.5;
+            stroke: var(--shape-stroke);
+            filter: url(#dropshadow-hs);
+            transition: transform 0.2s ease-in-out, filter 0.2s ease-in-out;
+        }
+        .flow-shape:hover {
+            transform: translateY(-3px);
+        }
+
+        .shape-process { fill: var(--process-bg); }
+        .shape-decision { fill: var(--decision-bg); }
+        .shape-terminal { fill: var(--terminal-bg); }
+        .shape-success { fill: var(--success-bg); }
+        .shape-warning { fill: var(--warning-bg); }
+
+        .flow-text {
+            font-family: inherit;
+            font-size: 16px;
+            fill: var(--text-color);
+            text-anchor: middle;
+            dominant-baseline: central;
+            pointer-events: none; /* Allow clicks to pass through text */
+        }
+        
+        .shape-terminal .flow-text, .shape-success .flow-text, .shape-warning .flow-text {
+            fill: #fff;
+        }
+
+        .flow-label {
+            font-size: 14px;
+            font-weight: 500;
+            fill: var(--line-color);
+            text-anchor: middle;
+        }
+
+        .flow-line {
+            stroke: var(--line-color);
+            stroke-width: 2px;
+            fill: none;
+            marker-end: url(#arrowhead-hs);
+        }
+    </style>
+
+    <!-- Flowchart Elements -->
+
+    <!-- Top Path (Defer/NAV) -->
+    <g id="set-nav-node" class="shape-warning">
+        <rect x="625" y="120" width="150" height="60" rx="8" class="flow-shape" />
+        <text x="700" y="150" class="flow-text">Set NAV</text>
+    </g>
+    <g id="defer-nav-node" class="shape-warning">
+        <rect x="225" y="120" width="150" height="60" rx="8" class="flow-shape" />
+        <text x="300" y="150" class="flow-text">Defer NAV timer</text>
+    </g>
+    
+    <!-- Main Path -->
+    <g id="start-node" class="shape-terminal">
+        <rect x="25" y="250" width="150" height="60" rx="30" class="flow-shape" />
+        <text x="100" y="280" class="flow-text">START</text>
+    </g>
+    <g id="backoff-node" class="shape-process">
+        <rect x="225" y="250" width="150" height="60" rx="8" class="flow-shape" />
+        <text x="300" y="280" class="flow-text">Backoff timer</text>
+    </g>
+    <g id="cca-node" class="shape-process">
+        <rect x="425" y="250" width="150" height="60" rx="8" class="flow-shape" />
+        <text x="500" y="280" class="flow-text">CCA</text>
+    </g>
+    <g id="signal-detect-node" class="shape-decision">
+        <path d="M625 280 L700 250 L775 280 L700 310 Z" class="flow-shape" />
+        <text x="700" y="280" class="flow-text">Signal Detect</text>
+    </g>
+    <g id="energy-detect-node" class="shape-decision">
+        <path d="M825 280 L900 250 L975 280 L900 310 Z" class="flow-shape" />
+        <text x="900" y="280" class="flow-text">Energy Detect</text>
+    </g>
+    
+    <!-- RTS/CTS Path -->
+    <g id="rts-node" class="shape-process">
+        <rect x="1025" y="250" width="150" height="60" rx="8" class="flow-shape" />
+        <text x="1100" y="280" class="flow-text">RTS</text>
+    </g>
+    <g id="cts-node" class="shape-process">
+        <rect x="1025" y="350" width="150" height="60" rx="8" class="flow-shape" />
+        <text x="1100" y="380" class="flow-text">CTS</text>
+    </g>
+    <g id="transmit-node" class="shape-success">
+        <rect x="1025" y="450" width="150" height="60" rx="8" class="flow-shape" />
+        <text x="1100" y="480" class="flow-text">Transmit</text>
+    </g>
+    
+    <!-- Bottom Path (Defer) -->
+    <g id="defer-slot-node" class="shape-warning">
+        <rect x="825" y="450" width="150" height="60" rx="8" class="flow-shape" />
+        <text x="900" y="480" class="flow-text">Defer one slot</text>
+    </g>
+    
+    <!-- Connectors -->
+    <!-- Main Flow -->
+    <path class="flow-line" d="M175,280 H225" />
+    <path class="flow-line" d="M375,280 H425" />
+    <path class="flow-line" d="M575,280 H625" />
+    <path class="flow-line" d="M775,280 H825" />
+    <text class="flow-label" x="800" y="270">Free</text>
+    <path class="flow-line" d="M975,280 H1025" />
+    <text class="flow-label" x="1000" y="270">Free</text>
+    
+    <!-- RTS -> CTS -> Transmit -->
+    <path class="flow-line" d="M1100,310 V350" />
+    <path class="flow-line" d="M1100,410 V450" />
+
+    <!-- Top Loop (Busy -> NAV) -->
+    <path class="flow-line" d="M700,250 V180" />
+    <text class="flow-label" x="720" y="215">Busy</text>
+    <path class="flow-line" d="M625,150 H375" />
+    <path class="flow-line" d="M300,180 V250" />
+
+    <!-- Bottom Loop (Busy -> Defer) -->
+    <path class="flow-line" d="M900,310 V400 H900 V450" />
+    <text class="flow-label" x="920" y="380">Busy</text>
+    <path class="flow-line" d="M825,480 H500 V310" />
+
+</svg>

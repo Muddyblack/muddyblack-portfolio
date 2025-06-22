@@ -63,7 +63,7 @@ export default function NavBar() {
           {/* Desktop Menu */}
           <div className="hidden md:flex items-center space-x-6">
             <Link 
-              href="#about" 
+              href="/#about" 
               className={`hover:text-primary transition-all hover:translate-y-[-2px] ${
                 scrolled ? 'text-secondary' : 'dark:text-secondary text-white'
               }`}
@@ -71,7 +71,7 @@ export default function NavBar() {
               About
             </Link>
             <Link 
-              href="#projects" 
+              href="/#projects" 
               className={`hover:text-primary transition-all hover:translate-y-[-2px] ${
                 scrolled ? 'text-secondary' : 'dark:text-secondary text-white'
               }`}
@@ -124,7 +124,7 @@ export default function NavBar() {
           <div className="md:hidden overflow-hidden">
             <div className="py-4 space-y-2 border-t border-muted/20">
               <Link 
-                href="#about"
+                href="/#about"
                 onClick={() => setIsMenuOpen(false)}
                 className={`block px-4 py-3 rounded-lg transition-colors ${
                   scrolled ? 'text-foreground hover:bg-muted/20' : 'text-white hover:bg-white/10'
@@ -133,7 +133,7 @@ export default function NavBar() {
                 About
               </Link>
               <Link 
-                href="#projects"
+                href="/#projects"
                 onClick={() => setIsMenuOpen(false)}
                 className={`block px-4 py-3 rounded-lg transition-colors ${
                   scrolled ? 'text-foreground hover:bg-muted/20' : 'text-white hover:bg-white/10'

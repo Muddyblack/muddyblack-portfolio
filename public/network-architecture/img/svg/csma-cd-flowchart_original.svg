@@ -1,0 +1,196 @@
+    <svg width="100%" viewBox="0 0 1550 650" xmlns="http://www.w3.org/2000/svg">
+        <!-- 
+            CSMA Algorithm Flowchart
+            A modern SVG implementation of the provided flowchart.
+            - Customizable styles are in the <style> tag.
+            - Layout is organized for clarity.
+            - Uses smooth paths and a clean, modern aesthetic.
+        -->
+        <defs>
+            <!-- Arrowhead Marker Definition -->
+            <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="0" refY="3.5" orient="auto" fill="var(--line-color)">
+                <polygon points="0 0, 10 3.5, 0 7" />
+            </marker>
+
+            <!-- Filter for a subtle drop shadow -->
+            <filter id="dropshadow" height="130%">
+                <feGaussianBlur in="SourceAlpha" stdDeviation="3"/>
+                <feOffset dx="2" dy="2" result="offsetblur"/>
+                <feComponentTransfer>
+                    <feFuncA type="linear" slope="0.5"/>
+                </feComponentTransfer>
+                <feMerge> 
+                    <feMergeNode/>
+                    <feMergeNode in="SourceGraphic"/> 
+                </feMerge>
+            </filter>
+        </defs>
+
+        <!-- CSS Styles for the Flowchart -->
+        <style>
+            :root {
+                --bg-color: #111827;
+                --shape-bg: #374151; /* Gray 700 */
+                --shape-stroke: #9ca3af; /* Gray 400 */
+                --text-color: #f9fafb; /* Gray 50 */
+                --line-color: #6b7280; /* Gray 500 */
+                
+                --process-bg: #1f2937; /* Gray 800 */
+                --decision-bg: #4b5563; /* Gray 600 */
+                --terminal-bg: #4f46e5; /* Indigo 600 */
+                --success-bg: #059669; /* Emerald 600 */
+                --error-bg: #dc2626; /* Red 600 */
+                --warning-bg: #f97316; /* Orange 500 */
+            }
+
+            .flow-shape {
+                stroke-width: 1.5;
+                stroke: var(--shape-stroke);
+                filter: url(#dropshadow);
+                transition: transform 0.2s ease-in-out, filter 0.2s ease-in-out;
+            }
+            .flow-shape:hover {
+                transform: translateY(-3px);
+            }
+
+            .shape-process { fill: var(--process-bg); }
+            .shape-decision { fill: var(--decision-bg); }
+            .shape-terminal { fill: var(--terminal-bg); }
+            .shape-success { fill: var(--success-bg); }
+            .shape-error { fill: var(--error-bg); }
+            .shape-warning { fill: var(--warning-bg); } /* Style for the jam signal */
+
+
+            .flow-text {
+                font-family: inherit;
+                font-size: 16px;
+                fill: var(--text-color);
+                text-anchor: middle;
+                dominant-baseline: central;
+                pointer-events: none; /* Allow clicks to pass through text */
+            }
+            .flow-text .line2 {
+                font-size: 14px;
+                dy: 1.2em;
+            }
+
+            .flow-label {
+                font-size: 14px;
+                font-weight: 500;
+                fill: #d1d5db; /* Gray 300 */
+                text-anchor: middle;
+            }
+
+            .flow-line {
+                stroke: var(--line-color);
+                stroke-width: 2px;
+                fill: none;
+                marker-end: url(#arrowhead);
+            }
+        </style>
+
+        <!-- Flowchart Elements -->
+
+        <!-- Row 1: Main Success Path -->
+        <g id="start-node">
+            <rect x="25" y="150" width="150" height="60" rx="30" class="flow-shape shape-terminal" />
+            <text x="100" y="180" class="flow-text">START</text>
+        </g>
+
+        <g id="init-node">
+            <rect x="225" y="150" width="180" height="60" rx="8" class="flow-shape shape-process" />
+            <text x="315" y="180" class="flow-text">
+                <tspan x="315" dy="-0.6em">Init Retransmission</tspan>
+                <tspan x="315" dy="1.2em">Counter, K=0</tspan>
+            </text>
+        </g>
+
+        <g id="network-free-node">
+            <path d="M455 180 L545 150 L635 180 L545 210 Z" class="flow-shape shape-decision" />
+            <text x="545" y="180" class="flow-text">Network free?</text>
+        </g>
+
+        <g id="start-tx-node">
+            <rect x="685" y="150" width="180" height="60" rx="8" class="flow-shape shape-process" />
+            <text x="775" y="180" class="flow-text">Start Data Transmission</text>
+        </g>
+
+        <g id="collision-node">
+            <path d="M915 180 L1005 150 L1095 180 L1005 210 Z" class="flow-shape shape-decision" />
+            <text x="1005" y="180" class="flow-text">Collision?</text>
+        </g>
+
+        <g id="transfer-finished-node">
+            <path d="M1145 180 L1235 150 L1325 180 L1235 210 Z" class="flow-shape shape-decision" />
+            <text x="1235" y="180" class="flow-text">Transfer finished?</text>
+        </g>
+
+        <g id="success-node">
+            <rect x="1375" y="150" width="150" height="60" rx="30" class="flow-shape shape-success" />
+            <text x="1450" y="180" class="flow-text">Successful</text>
+        </g>
+
+        <!-- Row 2: Collision Handling Path -->
+        <g id="send-jam-node">
+            <!-- Changed to shape-warning for orange color -->
+            <rect x="915" y="280" width="180" height="60" rx="8" class="flow-shape shape-warning" />
+            <text x="1005" y="310" class="flow-text">Send Jam Signal</text>
+        </g>
+
+        <g id="increment-k-node">
+            <rect x="915" y="380" width="180" height="60" rx="8" class="flow-shape shape-process" />
+            <text x="1005" y="410" class="flow-text">K = K + 1</text>
+        </g>
+        
+        <g id="kmax-node">
+            <path d="M915 510 L1005 480 L1095 510 L1005 540 Z" class="flow-shape shape-decision" />
+            <text x="1005" y="510" class="flow-text">K > Kmax?</text>
+        </g>
+
+        <!-- Row 3: Backoff and Error -->
+        <g id="backoff-node">
+            <rect x="455" y="380" width="180" height="60" rx="8" class="flow-shape shape-process" />
+            <text x="545" y="410" class="flow-text">Backoff</text>
+        </g>
+
+        <g id="error-node">
+            <rect x="1145" y="480" width="150" height="60" rx="30" class="flow-shape shape-error" />
+            <text x="1220" y="510" class="flow-text">Error</text>
+        </g>
+        
+
+        <!-- Connectors -->
+        <!-- Main Flow -->
+        <path class="flow-line" d="M175,180 H225" />
+        <path class="flow-line" d="M405,180 H455" />
+        <path class="flow-line" d="M635,180 H685" />
+        <text class="flow-label" x="660" y="170">Yes</text>
+        <path class="flow-line" d="M865,180 H915" />
+        <path class="flow-line" d="M1095,180 H1145" />
+        <text class="flow-label" x="1120" y="170">No</text>
+        <path class="flow-line" d="M1325,180 H1375" />
+        <text class="flow-label" x="1350" y="170">Yes</text>
+
+        <!-- No Transfer Finished Loop -->
+        <path class="flow-line" d="M1235,150 V100 H1005 V145" />
+        <text class="flow-label" x="1120" y="90">No</text>
+        
+        <!-- Network Free "No" Loop - FIXED to be a clean loop from the top -->
+        <path class="flow-line" d="M545,150 v-50 h-115 v80"/>
+        <text class="flow-label" x="485" y="90">No</text>
+
+        <!-- Collision Path -->
+        <path class="flow-line" d="M1005,210 V280" />
+        <text class="flow-label" x="1025" y="245">Yes</text>
+        <path class="flow-line" d="M1005,340 V380" />
+        <path class="flow-line" d="M1005,440 V480" />
+
+        <!-- Kmax Path -->
+        <path class="flow-line" d="M1095,510 H1145" />
+        <text class="flow-label" x="1120" y="500">Yes</text>
+
+        <!-- Backoff Loop -->
+        <path class="flow-line" d="M1005,540 V580 H545 V440" />
+        <text class="flow-label" x="985" y="560">No</text>
+        <path class="flow-line" d="M545,380 V215" />
+</svg>
