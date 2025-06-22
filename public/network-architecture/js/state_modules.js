@@ -333,7 +333,7 @@ const modulePageContent = {
                   <!-- Discovery Section -->
                   <div class="glass-card p-4">
                       <div class="flex items-center gap-3 mb-4">
-                          <div class="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center font-bold">0</div>
+                          <div class="w-8 h-8 bg-blue-100 dark:bg-blue-900/70 text-blue-900 dark:text-blue-100 rounded-full flex items-center justify-center font-bold">0</div>
                           <div>
                               <h3 class="text-xl font-bold">Discovery Process</h3>
                               <p class="text-sm text-[var(--text-secondary)]">Before entering any state, the client must discover available Access Points in range.</p>
@@ -363,7 +363,7 @@ const modulePageContent = {
                       <div class="grid lg:grid-cols-3 gap-4">
                           <!-- State 1 -->
                           <div class="relative p-4 bg-gradient-to-br from-red-50 to-red-100 dark:from-red-900/20 dark:to-red-800/20 rounded-xl border-2 border-red-200 dark:border-red-700">
-                              <div class="absolute -top-3 left-3 w-6 h-6 bg-red-100 rounded-full flex items-center justify-center text-sm font-bold">1</div>
+                              <div class="absolute -top-3 left-3 w-6 h-6 bg-red-100 dark:bg-red-900/70 text-red-900 dark:text-red-100 rounded-full flex items-center justify-center text-sm font-bold">1</div>
                               <h4 class="font-bold text-red-700 dark:text-red-300 mt-2 mb-3">🔴 Unauthenticated & Unassociated</h4>
                               <div class="space-y-2 text-xs">
                                   <div><strong>Status:</strong> No connection between AP and client</div>
@@ -380,7 +380,7 @@ const modulePageContent = {
 
                           <!-- State 2 -->
                           <div class="relative p-4 bg-gradient-to-br from-yellow-50 to-yellow-100 dark:from-yellow-900/20 dark:to-yellow-800/20 rounded-xl border-2 border-yellow-200 dark:border-yellow-700">
-                              <div class="absolute -top-3 left-3 w-6 h-6 bg-yellow-100 rounded-full flex items-center justify-center text-sm font-bold">2</div>
+                              <div class="absolute -top-3 left-3 w-6 h-6 bg-yellow-100 dark:bg-yellow-900/70 text-yellow-900 dark:text-yellow-100 rounded-full flex items-center justify-center text-sm font-bold">2</div>
                               <h4 class="font-bold text-yellow-700 dark:text-yellow-300 mt-2 mb-3">🟡 Authenticated & Unassociated</h4>
                               <div class="space-y-2 text-xs">
                                   <div><strong>Status:</strong> Authenticated but not connected</div>
@@ -397,7 +397,7 @@ const modulePageContent = {
 
                           <!-- State 3 -->
                           <div class="relative p-4 bg-gradient-to-br from-green-50 to-green-100 dark:from-green-900/20 dark:to-green-800/20 rounded-xl border-2 border-green-200 dark:border-green-700">
-                              <div class="absolute -top-3 left-3 w-6 h-6 bg-green-100 rounded-full flex items-center justify-center text-sm font-bold">3</div>
+                              <div class="absolute -top-3 left-3 w-6 h-6 bg-green-100 dark:bg-green-900/70 text-green-900 dark:text-green-100 rounded-full flex items-center justify-center text-sm font-bold">3</div>
                               <h4 class="font-bold text-green-700 dark:text-green-300 mt-2 mb-3">🟢 Authenticated & Associated</h4>
                               <div class="space-y-2 text-xs">
                                   <div><strong>Status:</strong> Full connection with one AP</div>
@@ -1045,7 +1045,7 @@ const modulePageContent = {
                     <div class="text-2xl text-gray-400 transform rotate-90 md:rotate-0">→</div>
                     <div class="flex flex-col items-center">
                         <div class="w-20 h-20 bg-yellow-100 dark:bg-yellow-900/40 rounded-full flex items-center justify-center border-2 border-yellow-300 dark:border-yellow-600">
-                           <svg class="w-10 h-10 text-yellow-700 dark:text-yellow-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2v-14a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2h2m2-12V7a4 4 0 00-8 0v4h8z"></path></svg>
+                           <svg class="w-10 h-10 text-yellow-700 dark:text-yellow-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2h2m2-12V7a4 4 0 00-8 0v4h8z"></path></svg>
                         </div>
                         <h4 class="font-bold mt-3">4. Analysis</h4>
                         <p class="text-xs text-[var(--text-secondary)]">Searching and finding insights.</p>
@@ -1177,7 +1177,7 @@ const modulePageContent = {
         title: "Print View",
         subtitle: "Compiled content for printing.",
         navTitle: "Print (2 pages)",
-        navIcon: `<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V7a4 4 0 00-8 0v4h8z"></path></svg>`,
+        navIcon: `<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2h2m2-12V7a4 4 0 00-8 0v4h8z"></path></svg>`,
         mainHtml: `              <div class="flex justify-center my-3 no-print gap-4">
                   <button id="trigger-print-btn" class="px-6 py-2.5 bg-green-600 text-white font-medium text-xs uppercase rounded shadow-md hover:bg-green-700 hover:shadow-lg transition ease-in-out">
                       Print
