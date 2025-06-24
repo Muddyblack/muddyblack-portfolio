@@ -647,7 +647,21 @@ const modulePageContent = {
                                       <strong class="text-purple-700 dark:text-purple-400">RC4 Keystream:</strong>
                                       <p class="mt-1 text-xs">Loop: select byte from S-Box, swap elements, output byte. Sequence forms keystream for XOR encryption.</p>
                                   </div>
+                              </div>                          </div>
+                      </div>
+                      
+                      <!-- WEP Encryption Diagram -->
+                      <div class="mt-6">
+                          <h4 class="font-bold text-lg mb-3 text-blue-600 dark:text-blue-400">📊 WEP Encryption Flow Diagram</h4>
+                          <div class="bg-white dark:bg-gray-800 p-4 rounded-lg border border-gray-200 dark:border-gray-700">
+                              <div class="w-full overflow-x-auto">
+                                  <div class="min-w-[600px]">
+                                      <img src="./img/svg/WEP.svg" alt="WEP Encryption Process Diagram" class="w-full h-auto max-w-none">
+                                  </div>
                               </div>
+                              <p class="text-xs text-[var(--text-secondary)] mt-2 text-center">
+                                  Visual representation of the WEP encryption process showing the flow from plaintext to encrypted output
+                              </p>
                           </div>
                       </div>
                   </div>                  <!-- 4-Way Handshake & KRACK -->
