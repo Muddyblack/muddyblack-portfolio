@@ -1,0 +1,211 @@
+<svg viewBox="0 0 900 680" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <!-- Gradients for modern look -->
+    <linearGradient id="blueGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#667eea;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#764ba2;stop-opacity:1" />
+    </linearGradient>
+    
+    <linearGradient id="greenGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#48bb78;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#38a169;stop-opacity:1" />
+    </linearGradient>
+    
+    <linearGradient id="purpleGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#9f7aea;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#805ad5;stop-opacity:1" />
+    </linearGradient>
+    
+    <linearGradient id="orangeGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#ed8936;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#dd6b20;stop-opacity:1" />
+    </linearGradient>
+    
+    <!-- Drop shadow filter -->
+    <filter id="dropshadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="2" dy="4" stdDeviation="3" flood-color="#000000" flood-opacity="0.2"/>
+    </filter>
+    
+    <!-- Arrow marker -->
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" 
+            refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#4a5568" />
+    </marker>
+  </defs>
+  <!-- Top row inputs -->
+  <!-- Src MAC -->
+  <rect x="50" y="20" width="100" height="50" rx="8" 
+        fill="url(#blueGradient)" filter="url(#dropshadow)"/>
+  <text x="100" y="50" text-anchor="middle" fill="white" 
+        font-family="Inter, sans-serif" font-size="16" font-weight="600">Src MAC</text>
+
+  <!-- Encryption Key -->
+  <rect x="200" y="20" width="140" height="50" rx="8" 
+        fill="url(#blueGradient)" filter="url(#dropshadow)"/>
+  <text x="270" y="40" text-anchor="middle" fill="white" 
+        font-family="Inter, sans-serif" font-size="14" font-weight="600">Encryption Key</text>
+  <text x="270" y="55" text-anchor="middle" fill="white" 
+        font-family="Inter, sans-serif" font-size="14" font-weight="600">(128bit)</text>
+
+  <!-- Integrity Key -->
+  <rect x="380" y="20" width="140" height="50" rx="8" 
+        fill="url(#blueGradient)" filter="url(#dropshadow)"/>
+  <text x="450" y="50" text-anchor="middle" fill="white" 
+        font-family="Inter, sans-serif" font-size="16" font-weight="600">Integrity Key</text>
+
+  <!-- Data -->
+  <rect x="560" y="20" width="100" height="50" rx="8" 
+        fill="url(#blueGradient)" filter="url(#dropshadow)"/>
+  <text x="610" y="50" text-anchor="middle" fill="white" 
+        font-family="Inter, sans-serif" font-size="16" font-weight="600">Data</text>
+  <!-- Key mixing 1 -->
+  <rect x="80" y="120" width="120" height="50" rx="8" 
+        fill="url(#blueGradient)" filter="url(#dropshadow)"/>
+  <text x="140" y="150" text-anchor="middle" fill="white" 
+        font-family="Inter, sans-serif" font-size="16" font-weight="600">Key mixing 1</text>
+
+  <!-- Michael -->
+  <rect x="480" y="120" width="120" height="50" rx="8" 
+        fill="url(#blueGradient)" filter="url(#dropshadow)"/>
+  <text x="540" y="150" text-anchor="middle" fill="white" 
+        font-family="Inter, sans-serif" font-size="16" font-weight="600">Michael</text>
+
+  <!-- Data + MIC -->
+  <rect x="480" y="200" width="150" height="50" rx="8" 
+        fill="#e2e8f0" stroke="#cbd5e0" stroke-width="2" filter="url(#dropshadow)"/>
+  <text x="555" y="230" text-anchor="middle" fill="#2d3748" 
+        font-family="Inter, sans-serif" font-size="16" font-weight="500">Data + MIC</text>
+
+  <!-- CRC32 Circle -->
+  <circle cx="370" cy="225" r="35" fill="url(#greenGradient)" filter="url(#dropshadow)"/>
+  <text x="370" y="231" text-anchor="middle" fill="white" 
+        font-family="Inter, sans-serif" font-size="14" font-weight="600">CRC32</text>
+
+  <!-- Key mixing 2 -->
+  <rect x="80" y="230" width="120" height="50" rx="8" 
+        fill="url(#blueGradient)" filter="url(#dropshadow)"/>
+  <text x="140" y="260" text-anchor="middle" fill="white" 
+        font-family="Inter, sans-serif" font-size="16" font-weight="600">Key mixing 2</text>
+  <!-- Data + MIC + Checksum -->
+  <rect x="340" y="310" width="220" height="50" rx="8" 
+        fill="#e2e8f0" stroke="#cbd5e0" stroke-width="2" filter="url(#dropshadow)"/>
+  <text x="450" y="340" text-anchor="middle" fill="#2d3748" 
+        font-family="Inter, sans-serif" font-size="16" font-weight="500">Data + MIC + Checksum</text>
+
+  <!-- RC4 Generator -->
+  <rect x="450" y="390" width="120" height="50" rx="8" 
+        fill="#4a5568" filter="url(#dropshadow)"/>
+  <text x="510" y="420" text-anchor="middle" fill="white" 
+        font-family="Inter, sans-serif" font-size="14" font-weight="500">RC4 Generator</text>
+
+  <!-- XOR Circle -->
+  <circle cx="650" cy="415" r="30" fill="url(#greenGradient)" filter="url(#dropshadow)"/>
+  <text x="650" y="422" text-anchor="middle" fill="white" 
+        font-family="Inter, sans-serif" font-size="16" font-weight="600">XOR</text>  <!-- IV High/Low boxes -->
+  <rect x="50" y="490" width="80" height="50" rx="8" 
+        fill="url(#blueGradient)" filter="url(#dropshadow)"/>
+  <text x="90" y="520" text-anchor="middle" fill="white" 
+        font-family="Inter, sans-serif" font-size="14" font-weight="600">IV High</text>
+
+  <rect x="130" y="490" width="80" height="50" rx="8" 
+        fill="url(#blueGradient)" filter="url(#dropshadow)"/>
+  <text x="170" y="520" text-anchor="middle" fill="white" 
+        font-family="Inter, sans-serif" font-size="14" font-weight="600">IV Low</text>
+
+  <!-- +1 Circle -->
+  <circle cx="130" cy="580" r="25" fill="url(#greenGradient)" filter="url(#dropshadow)"/>
+  <text x="130" y="587" text-anchor="middle" fill="white" 
+        font-family="Inter, sans-serif" font-size="14" font-weight="600">+1</text>
+
+  <!-- Final output boxes -->
+  <rect x="250" y="570" width="80" height="50" rx="8" 
+        fill="url(#blueGradient)" filter="url(#dropshadow)" stroke="white" stroke-width="1"/>
+  <text x="290" y="600" text-anchor="middle" fill="white" 
+        font-family="Inter, sans-serif" font-size="16" font-weight="600">IV High</text>
+
+  <rect x="330" y="570" width="80" height="50" rx="8" 
+        fill="url(#blueGradient)" filter="url(#dropshadow)" stroke="white" stroke-width="1"/>
+  <text x="370" y="600" text-anchor="middle" fill="white" 
+        font-family="Inter, sans-serif" font-size="16" font-weight="600">IV Low</text>
+
+  <rect x="410" y="570" width="280" height="50" rx="8" 
+        fill="url(#blueGradient)" filter="url(#dropshadow)" stroke="white" stroke-width="1"/>
+  <text x="550" y="600" text-anchor="middle" fill="white" 
+        font-family="Inter, sans-serif" font-size="16" font-weight="600">Data + MIC + Checksum (encrypted)</text>
+  <!-- Arrows -->
+  <!-- Src MAC to Key mixing 1 -->
+  <path d="M 100 70 L 100 95 L 140 95 L 140 120" 
+        stroke="#4a5568" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
+
+  <!-- Encryption Key to Key mixing 1 -->
+  <path d="M 270 70 L 270 95 L 140 95 L 140 120" 
+        stroke="#4a5568" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
+
+  <!-- Key mixing 1 to Key mixing 2 -->
+  <path d="M 140 170 L 140 230" 
+        stroke="#4a5568" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
+
+  <!-- Integrity Key to Michael -->
+  <path d="M 450 70 L 450 95 L 540 95 L 540 120" 
+        stroke="#4a5568" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
+
+  <!-- Data to Michael -->
+  <path d="M 610 70 L 610 95 L 540 95 L 540 120" 
+        stroke="#4a5568" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
+
+  <!-- Data directly to Data + MIC -->
+  <path d="M 610 70 L 610 185 L 555 185 L 555 200" 
+        stroke="#4a5568" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
+
+  <!-- Michael to Data + MIC -->
+  <path d="M 540 170 L 540 185 L 555 185 L 555 200" 
+        stroke="#4a5568" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
+
+  <!-- Data + MIC to CRC32 -->
+  <path d="M 480 225 L 405 225" 
+        stroke="#4a5568" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
+
+  <!-- IV High to Key mixing 1 -->
+  <path d="M 90 490 L 90 480 L 30 480 L 30 145 L 80 145" 
+        stroke="#4a5568" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
+
+  <!-- IV Low to Key mixing 2 -->
+  <path d="M 170 490 L 170 280" 
+        stroke="#4a5568" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
+
+  <!-- CRC32 to Data + MIC + Checksum -->
+  <path d="M 370 260 L 370 290 L 450 290 L 450 310" 
+        stroke="#4a5568" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
+
+  <!-- Data + MIC to Data + MIC + Checksum -->
+  <path d="M 555 250 L 555 280 L 450 280 L 450 310" 
+        stroke="#4a5568" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
+  <!-- Key mixing 2 to RC4 Generator -->
+  <path d="M 200 255 L 320 255 L 320 415 L 450 415" 
+        stroke="#4a5568" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
+
+  <!-- Data + MIC + Checksum to XOR -->
+  <path d="M 560 335 L 650 335 L 650 385" 
+        stroke="#4a5568" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
+
+  <!-- RC4 Generator to XOR -->
+  <path d="M 570 415 L 620 415" 
+        stroke="#4a5568" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
+
+  <!-- Arrow from between IV High/Low to +1 -->
+  <path d="M 130 540 L 130 580" 
+        stroke="#4a5568" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
+
+  <!-- +1 back to IV High -->
+  <path d="M 105 580 L 30 580 L 30 515 L 50 515" 
+        stroke="#4a5568" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
+
+  <!-- IV Low to middle between final IV boxes -->
+  <path d="M 170 540 L 170 550 L 330 550 L 330 570" 
+        stroke="#4a5568" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
+
+  <!-- XOR to final encrypted output -->
+  <path d="M 650 445 L 650 535 L 550 535 L 550 570" 
+        stroke="#4a5568" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
+
+</svg>

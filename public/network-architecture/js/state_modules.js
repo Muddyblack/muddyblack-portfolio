@@ -312,15 +312,40 @@ const modulePageContent = {
                                </ol>
                           </div>
                       </div>
-                  </div>
-
-                       <div class="glass-card p-6 sm:p-8">
+                  </div>                       <div class="glass-card p-6 sm:p-8">
                             <h3 class="text-2xl font-bold mb-4">DCF Flow with RTS</h3>
                             <p class="mb-6 text-[var(--text-secondary)]">Compared to the basic DCF flow, this version adds two new process steps (<strong class="text-green-600 dark:text-green-400">RTS</strong> and <strong class="text-green-600 dark:text-green-400">CTS</strong>) after the channel is determined to be free, and before the main data transmission begins. This is the key modification to solve the hidden station problem.</p>
                             <div class="p-4 rounded-xl overflow-x-auto border border-[var(--card-border)]">
                                 <div data-svg-src="./img/svg/hidden-station-problem.svg"></div>
                             </div>
-                       </div>
+                       </div>                  <div class="grid grid-cols-1 lg:grid-cols-2 gap-4">                      <div class="glass-card p-4">
+                          <h3 class="text-lg font-bold mb-3 text-blue-600 dark:text-blue-400">Single Access</h3>
+                          <ul class="list-disc list-inside space-y-1 text-sm text-[var(--text-secondary)]">
+                              <li><strong class="text-[var(--text-primary)]">Distinguish between noise and weak signals</strong></li>
+                              <li><strong class="text-[var(--text-primary)]">Discovery of AP harder</strong></li>
+                              <li><strong class="text-[var(--text-primary)]">Align on protocols before transmission</strong></li>
+                              <li><strong class="text-[var(--text-primary)]">Create communication stream</strong></li>
+                              <li><strong class="text-[var(--text-primary)]">Limited by range of signal</strong></li>
+                          </ul>
+                          <div class="mt-3 p-2 bg-blue-50 dark:bg-blue-900/20 border-l-2 border-blue-500 rounded-r text-xs">
+                              <span class="text-blue-900 dark:text-blue-200">→ Always signal in all directions</span>
+                          </div>
+                      </div>
+
+                      <div class="glass-card p-4">
+                          <h3 class="text-lg font-bold mb-3 text-red-600 dark:text-red-400">Multiple Access</h3>
+                          <ul class="list-disc list-inside space-y-1 text-sm text-[var(--text-secondary)]">
+                              <li><strong class="text-[var(--text-primary)]">Always broadcasting signal</strong></li>
+                              <li><strong class="text-[var(--text-primary)]">Overlapping signals of multiple stations</strong></li>
+                              <li><strong class="text-[var(--text-primary)]">Collisions can easily occur</strong></li>
+                              <li><strong class="text-[var(--text-primary)]">Sending and receiving not possible at the same time</strong></li>
+                              <li><strong class="text-[var(--text-primary)]">No immediate feedback possible</strong></li>
+                          </ul>
+                          <div class="mt-3 p-2 bg-red-50 dark:bg-red-900/20 border-l-2 border-red-500 rounded-r text-xs">
+                              <span class="text-red-900 dark:text-red-200">→ Protocol required to coordinate access</span>
+                          </div>
+                      </div>
+                  </div>
               </div>
         `,
         initLogic: () => { animateCards(); initSVGPlaceholders(); }
@@ -631,21 +656,55 @@ const modulePageContent = {
                                       </div>
                                   </div>
                               </div>
-                          </div>
-                          <div>
+                          </div>                          <div>
                               <h4 class="font-bold text-lg mb-3 text-purple-700 dark:text-purple-400">🔧 Core Concepts: S-Box & RC4</h4>
                               <div class="space-y-3 text-sm">
                                   <div class="bg-purple-50 dark:bg-purple-900/30 p-3 rounded-lg">
                                       <strong class="text-purple-700 dark:text-purple-400">S-Box (Substitution Box):</strong>
-                                      <p class="mt-1 text-xs">Lookup table for non-linear data transformation, crucial for cryptography. Can be static (AES) or dynamic (RC4).</p>
-                                  </div>
-                                  <div class="bg-purple-50 dark:bg-purple-900/30 p-3 rounded-lg">
-                                      <strong class="text-purple-700 dark:text-purple-400">RC4 S-Box Init:</strong>
+                                      <p class="mt-1 text-xs">Replace entries of an input • Used in cryptography as non-linear function • Transforms m input bits into n output bits • Works as a lookup table</p>
+                                      <div class="mt-2 grid grid-cols-2 gap-2 text-xs">
+                                          <div class="bg-white dark:bg-gray-800 p-2 rounded border-l-2 border-blue-400">
+                                              <span class="font-semibold text-blue-600 dark:text-blue-400">Static S-Box:</span>
+                                              <p class="mt-1">Not changing over time • Usually used multiple rounds • E.g. Rijndael S-Box (AES): Maps 8-bit input to 8-bit output • Resistant to cryptanalysis</p>
+                                          </div>
+                                          <div class="bg-white dark:bg-gray-800 p-2 rounded border-l-2 border-green-400">
+                                              <span class="font-semibold text-green-600 dark:text-green-400">Dynamic S-Box:</span>
+                                              <p class="mt-1">Generated based on input • Includes transformation operations • Each round new S-Box • E.g. RC4: Permutation of 256 bits • Substitution based on key</p>
+                                          </div>
+                                      </div>
+                                  </div>                                  <div class="bg-purple-50 dark:bg-purple-900/30 p-3 rounded-lg">
+                                      <strong class="text-purple-700 dark:text-purple-400">RC4 S-Box Initialization Algorithm:</strong>
                                       <p class="mt-1 text-xs">Starts with ordered array (0-255), shuffles using WEP key + IV as seed, creates unique pseudo-random S-Box.</p>
+                                      <div class="mt-2 bg-gray-800 dark:bg-gray-900 p-3 rounded text-xs font-mono text-green-400 overflow-x-auto">
+                                          <div class="text-gray-400 mb-1"># S-Box initialization</div>
+                                          <div class="text-blue-300">def initialize_RC4(key):</div>
+                                          <div class="ml-4 text-yellow-300">key_length = len(key)</div>
+                                          <div class="ml-4 text-yellow-300">S = [i for i in range(256)]</div>
+                                          <div class="ml-4 text-yellow-300">j = 0</div>
+                                          <div class="ml-4 text-cyan-300">for i in range(256):</div>
+                                          <div class="ml-8 text-pink-300">j = (j + S[i] + key[i % key_length]) % 256</div>
+                                          <div class="ml-8 text-pink-300">S[i], S[j] = S[j], S[i]</div>
+                                          <div class="ml-4 text-green-300">return S</div>
+                                      </div>
                                   </div>
                                   <div class="bg-purple-50 dark:bg-purple-900/30 p-3 rounded-lg">
-                                      <strong class="text-purple-700 dark:text-purple-400">RC4 Keystream:</strong>
+                                      <strong class="text-purple-700 dark:text-purple-400">RC4 Keystream Generation Algorithm:</strong>
                                       <p class="mt-1 text-xs">Loop: select byte from S-Box, swap elements, output byte. Sequence forms keystream for XOR encryption.</p>
+                                      <div class="mt-2 bg-gray-800 dark:bg-gray-900 p-3 rounded text-xs font-mono text-green-400 overflow-x-auto">
+                                          <div class="text-gray-400 mb-1"># Keystream Algorithm</div>
+                                          <div class="text-yellow-300">i = 0</div>
+                                          <div class="text-yellow-300">j = 0</div>
+                                          <div class="text-cyan-300">for k in range(n):</div>
+                                          <div class="ml-4 text-pink-300">i = (i + 1) % 256</div>
+                                          <div class="ml-4 text-pink-300">j = (j + S[i]) % 256</div>
+                                          <div class="ml-4 text-gray-400"># Swap bytes in S</div>
+                                          <div class="ml-4 text-orange-300">S[i], S[j] = S[j], S[i]</div>
+                                          <div class="ml-4 text-blue-300">rand_index = (S[i] + S[j]) % 256</div>
+                                          <div class="ml-4 text-green-300">nextByte = S[rand_index]</div>
+                                      </div>
+                                      <div class="mt-2 text-xs text-purple-600 dark:text-purple-400">
+                                          <strong>Key Points:</strong> Uses initialized S-box, increments counter i, chooses index j based on S[i] and previous j, swaps values, gets output byte based on S[i] and S[j].
+                                      </div>
                                   </div>
                               </div>                          </div>
                       </div>
@@ -783,8 +842,53 @@ const modulePageContent = {
                               <div class="text-xs space-y-1">
                                   <div>• <strong>Strong Passwords:</strong> Complex, long passphrases resist brute force</div>
                                   <div>• <strong>WPA3:</strong> Uses SAE (Simultaneous Authentication of Equals) - resistant to offline attacks</div>
-                                  <div>• <strong>Enterprise WPA:</strong> Uses 802.1X authentication with individual user credentials</div>
-                                  <div>• <strong>Network Monitoring:</strong> Detect deauth attacks and suspicious reconnection patterns</div>
+                                  <div>• <strong>Enterprise WPA:</strong> Uses 802.1X authentication with individual user credentials</div>                                  <div>• <strong>Network Monitoring:</strong> Detect deauth attacks and suspicious reconnection patterns</div>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+
+                  <!-- Modern Wi-Fi Enhancements -->
+                  <div class="glass-card p-4">
+                      <h3 class="text-xl font-bold mb-4 text-center text-cyan-400">🚀 Modern Wi-Fi Performance & Enterprise Features</h3>
+                      <div class="grid md:grid-cols-2 gap-4">
+                          <!-- Multi-User & Performance -->
+                          <div class="space-y-3">
+                              <div class="p-3 bg-gradient-to-br from-blue-50 to-cyan-50 dark:from-blue-900/20 dark:to-cyan-900/20 rounded-lg">
+                                  <h4 class="font-bold text-blue-700 dark:text-blue-300 mb-2">⚡ Multi-User Improvements</h4>
+                                  <div class="text-xs space-y-1">
+                                      <div><strong>Problem:</strong> Traditional Wi-Fi = single-user access (CSMA-CA)</div>
+                                      <div><strong>Impact:</strong> Full channel blocked, suboptimal throughput</div>
+                                      <div><strong>Solution:</strong> Parallel transmission technologies</div>
+                                  </div>
+                              </div>
+                              <div class="p-3 bg-gradient-to-br from-purple-50 to-indigo-50 dark:from-purple-900/20 dark:to-indigo-900/20 rounded-lg">
+                                  <h4 class="font-bold text-purple-700 dark:text-purple-300 mb-2">📊 OFDMA</h4>
+                                  <div class="text-xs space-y-1">
+                                      <div><strong>Concept:</strong> Orthogonal Frequency Division Multiple Access</div>
+                                      <div><strong>Method:</strong> Split frequency into Resource Units (RU)</div>
+                                      <div><strong>Benefit:</strong> Multiple stations transmit simultaneously</div>
+                                  </div>
+                              </div>
+                          </div>
+                          
+                          <!-- MU-MIMO & Enterprise -->
+                          <div class="space-y-3">
+                              <div class="p-3 bg-gradient-to-br from-green-50 to-emerald-50 dark:from-green-900/20 dark:to-emerald-900/20 rounded-lg">
+                                  <h4 class="font-bold text-green-700 dark:text-green-300 mb-2">📡 MU-MIMO</h4>
+                                  <div class="text-xs space-y-1">
+                                      <div><strong>Concept:</strong> Multi-User Multiple Input Multiple Output</div>
+                                      <div><strong>Method:</strong> Spatial multiplexing with beamforming</div>
+                                      <div><strong>Benefit:</strong> Frequency reuse in different directions</div>
+                                  </div>
+                              </div>
+                              <div class="p-3 bg-gradient-to-br from-orange-50 to-red-50 dark:from-orange-900/20 dark:to-red-900/20 rounded-lg">
+                                  <h4 class="font-bold text-orange-700 dark:text-orange-300 mb-2">🏢 Multi-AP Environments</h4>
+                                  <div class="text-xs space-y-1">
+                                      <div><strong>Challenges:</strong> Roaming, dead zones, load balancing</div>
+                                      <div><strong>Solutions:</strong> Fast BSS transition, mesh networks</div>
+                                      <div><strong>Standards:</strong> 802.11r (roaming), 802.11s (mesh)</div>
+                                  </div>
                               </div>
                           </div>
                       </div>
